@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
+
+<head th:include="fragments/head :: head (pageTitle='Main Page')" />
+
+<body>
+
+<div class="page">
+
+    <div th:replace="~{fragments/navbar :: navbar (active='index')}"></div>
+
+
+    <div class="main__page-card">
+        <h1 class="text__color-blue">COVID19 Test Center</h1>
+        <h2 class="text__color-gray mb-2">text:blablalba</h2>
+    </div>
+
+
+</div>
+    <footer th:include="fragments/footer :: footer" class="mt-5" />
+</div>
+
+
+
+<!--<div class="page">
+    <div class="container">
+        <div th:include="fragments/navbar :: navbar (active='index')" />
+
+
+
+   <div class="main__page-card">
+
+       <h1 class="text__color-blue">Test text</h1>
+       <h2 class="text__color-gray mb-2">Test paragraph</h2>
+                    <button class="btn">Click here</button>
+   </div>
+
+
+        <footer th:include="fragments/footer :: footer" class="mt-5" />
+    </div>
+</div>-->
+
+
+
+</body>
+
+</html>

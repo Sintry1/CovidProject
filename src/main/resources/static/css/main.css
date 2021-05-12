@@ -1,0 +1,90 @@
+body, html { min-height: 100%; }
+body {
+    color: white;
+    background: url(../images/1920size.jpg) center no-repeat;
+    background-size: cover;
+    background-color: #444;
+}
+
+/* BUTTONS */
+.submit__button {
+    background-color: #32355d;
+    border-color: #32355d;
+    margin-right: 60px;
+    width: 88%;
+}
+
+/* The navbar */
+.topnav {
+    overflow: hidden;
+    background-color: #979c9c;
+    width: 100%
+}
+
+/* Navbar links */
+.topnav a {
+
+    display: block;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 17px;
+
+
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+.page {
+    padding-bottom: 100px;
+}
+
+
+/*CARDS*/
+.main__page-card {
+    position: absolute;
+    left: 8vw;
+    top: 30vh;
+}
+
+.main__page-card h1 {
+    width: 60%;
+    font-size: 68px;
+    color: #618186;
+}
+
+.main__page-card h2 {
+    font-size: 40px;
+    color: #618186;
+}
+
+
+
+
+
+/* FOOTER */
+footer {
+    background-color: #979c9c;
+    position: fixed;
+    text-align: center;
+    width: 99%;
+    bottom: 0;
+    height: 30px;
+    padding-bottom: 10px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+
+
+

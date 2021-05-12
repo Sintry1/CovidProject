@@ -7,9 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Covid19ProjectApplication {
 
     public static void main(String[] args) {
-        System.out.println("I'm going to fail");
-        System.out.println("me too");
-        // fgdsfgdsgfdgdf
         SpringApplication.run(Covid19ProjectApplication.class, args);
     }
 
