@@ -1,7 +1,12 @@
 package Covid19project.model;
 
+import javax.persistence.Entity;
+import org.springframework.data.annotation.Id;
+
+@Entity
 public class User {
 
+        @Id
         private int id;   // Not sure if we need ID , maybe cpr is enough
         private int cpr;
         private String name;
@@ -16,6 +21,7 @@ public class User {
             this.phone = phone;
         }
 
+        @javax.persistence.Id
         public int getId(){
             return id;
         }

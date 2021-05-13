@@ -18,7 +18,8 @@ body {
 .topnav {
     overflow: hidden;
     background-color: #979c9c;
-    width: 100%
+    width: 100%;
+    opacity: 0.5;
 }
 
 /* Navbar links */
@@ -26,7 +27,7 @@ body {
 
     display: block;
     text-transform: uppercase;
-    color: #fff;
+    color: black;
     font-size: 17px;
 
 
@@ -58,7 +59,8 @@ body {
 .main__page-card h1 {
     width: 60%;
     font-size: 68px;
-    color: #618186;
+    /*color: #618186;*/
+    color: green;
 }
 
 .main__page-card h2 {
@@ -79,10 +81,12 @@ footer {
     bottom: 0;
     height: 30px;
     padding-bottom: 10px;
+    opacity: 0.3;
 }
 
 footer a {
     text-decoration: none;
+    color: black;
 }
 
 
