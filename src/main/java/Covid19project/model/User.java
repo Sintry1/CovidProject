@@ -1,5 +1,6 @@
 package Covid19project.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import org.springframework.data.annotation.Id;
 
@@ -7,28 +8,31 @@ import org.springframework.data.annotation.Id;
 public class User {
 
         @Id
-        private int id;   // Not sure if we need ID , maybe cpr is enough
+        //private int id;   // Not sure if we need ID , maybe cpr is enough
+        @Column(name = "cpr")
         private int cpr;
-        private String name;
-        private int phone;
+        @Column(name = "userName")
+        private String userName;
+        @Column(name = "password")
+        private int password;
 
         public User(){}
 
-        public User(int id, int cpr, String name, int phone){
-            this.id = id;
+        public User(int cpr, String userName, int password){
             this.cpr = cpr;
-            this.name = name;
-            this.phone = phone;
+            this.userName = userName;
+            this.password = password;
         }
 
-        @javax.persistence.Id
-        public int getId(){
+
+        /*public int getId(){
             return id;
         }
         public void setId(int id){
             this.id = id;
         }
-
+*/
+        @javax.persistence.Id
         public int getCpr(){
             return cpr;
         }
@@ -36,16 +40,16 @@ public class User {
             this.cpr = cpr;
         }
 
-        public String getName(){  return name; }
-        public void setName(String name){
-            this.name = name;
+        public String getName(){  return userName; }
+        public void setName(String userName){
+            this.userName = userName;
         }
 
-        public int getPhone(){
-            return phone;
+        public int getPassword(){
+            return password;
         }
-        public void setPhone(int phone){
-            this.phone = phone;
+        public void setPassword(int password){
+            this.password = password;
         }
 
     }

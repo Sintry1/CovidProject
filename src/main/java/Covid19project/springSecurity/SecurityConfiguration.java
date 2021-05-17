@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+   @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery(usersQuery)
                 .authoritiesByUsernameQuery(rolesQuery)
                 .dataSource(dataSource)
-                .passwordEncoder(bCryptPasswordEncoder);
+              .passwordEncoder(bCryptPasswordEncoder);
     }
 
     @Override
@@ -46,8 +46,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // URLs matching for access rights
                 .antMatchers("/").permitAll()
-                .antMatchers("/vaccine").permitAll()
-                .antMatchers("/booking").hasAnyAuthority("ADMIN")
+                .antMatchers("/vaccine").hasAnyAuthority("ADMIN", "SECRETARY")
+                .antMatchers("/booking").hasAnyAuthority("ADMIN", "SECRETARY", "USER")
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/error").permitAll()
