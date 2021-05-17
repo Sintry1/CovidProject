@@ -35,17 +35,21 @@
     <a href="/vaccine">Vaccine</a>
 
     <!-- LOGIN BUTTON-->
-    <div class="logout">
+
         <form th:action="@{/login}"  sec:authorize="isAnonymous()">
-            <button type="submit" class="btn btn-lg btn-primary" style="margin-right:10px;">Login</button>
+            <button type="submit" class="btn btn-lg btn-primary"
+                    style="border:solid 2px #000000; margin-top: 2px">Login</button>
         </form>
-    </div>
+
     <!-- LOGOUT BUTTON-->
-    <div class="logout">
+
         <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
-        <button type="submit" class="btn btn-lg btn-primary" style="margin-right:10px;">Logout</button>
+        <button type="submit" class="btn btn-lg btn-primary"
+                style="margin-top: 2px;
+                background-color: #d90c0c;
+                border:solid 2px #000000;">Logout</button>
         </form>
-    </div>
+
 
 
 

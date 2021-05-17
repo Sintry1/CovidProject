@@ -7,18 +7,21 @@ body {
 }
 
 /* BUTTONS */
-.submit__button {
-    background-color: #32355d;
-    border-color: #32355d;
-    margin-right: 60px;
-    width: 88%;
+.logout{
+    margin-top: 200px;
+    margin-left: 100px;
+    background-color: #d90c0c;
+    padding:20px;
+    border:solid 1px #000000;
+
 }
 
 /* The navbar */
 .topnav {
     overflow: hidden;
     background-color: #979c9c;
-    width: 100%
+    width: 100%;
+    opacity: 0.5;
 }
 
 /* Navbar links */
@@ -79,6 +82,7 @@ footer {
     bottom: 0;
     height: 30px;
     padding-bottom: 10px;
+    opacity: 0.3;
 }
 
 footer a {
