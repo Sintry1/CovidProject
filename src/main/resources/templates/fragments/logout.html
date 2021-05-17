@@ -1,0 +1,5 @@
+
+<form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+  <<!--input type="submit">LOGOUT</input>-->
+  <button type="submit" class="btn btn-lg btn-primary" style="margin-right:10px;">Logout</button>
+</form>
