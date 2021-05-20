@@ -7,14 +7,24 @@ body {
 }
 
 /* BUTTONS */
-.logout{
+/*.logout{
     margin-top: 200px;
     margin-left: 100px;
     background-color: #d90c0c;
     padding:20px;
     border:solid 1px #000000;
 
+}*/
+
+/*LOGGED IN USER*/
+div.fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 150px;
+    color:black
 }
+
 
 /* The navbar */
 .topnav {

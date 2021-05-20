@@ -30,19 +30,18 @@
 
 <div th:fragment="navbar (active)">
 <div class="topnav">
+
     <a href="/">Home</a>
     <a href="/booking">Book a test</a>
     <a href="/vaccine">Vaccine</a>
 
     <!-- LOGIN BUTTON-->
-
         <form th:action="@{/login}"  sec:authorize="isAnonymous()">
             <button type="submit" class="btn btn-lg btn-primary"
                     style="border:solid 2px #000000; margin-top: 2px">Login</button>
         </form>
 
     <!-- LOGOUT BUTTON-->
-
         <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
         <button type="submit" class="btn btn-lg btn-primary"
                 style="margin-top: 2px;
@@ -54,4 +53,13 @@
 
 
 </div>
+
+    <!--LOGGED IN USER DETAILS-->
+    <div class="fixed">
+
+        <h4 sec:authorize="isAuthenticated()">
+            <p>Logged user: <span sec:authentication="name">test</span></p>
+        </h4>
+    </div>
+
 </div>

@@ -1,7 +1,11 @@
 package Covid19project.model.Data;
 
+import javax.persistence.Id;
+
 public class Address {
 
+    @Id
+    private int addressId;
     private String streetName;
     private int streetNumber;
     private int postCode;
@@ -17,15 +21,7 @@ public class Address {
                 '}';
     }
 
-    public Address(String streetName, int streetNumber, int postCode, String city) {
-        this.streetName = streetName;
-        this.streetNumber = streetNumber;
-        this.postCode = postCode;
-        this.city = city;
-    }
 
-    public Address() {
-    }
 
     public String getStreetName() {
         return streetName;

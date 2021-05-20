@@ -1,6 +1,8 @@
-package Covid19project.model;
+package Covid19project.model.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "auth_role")
@@ -29,6 +31,8 @@ public class Role {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
+
 
 
 

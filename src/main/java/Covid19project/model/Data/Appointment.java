@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Appointment {
 
+    private int appointmentId;
     private Date time;
     private Date date;
     private TestCenter location;
