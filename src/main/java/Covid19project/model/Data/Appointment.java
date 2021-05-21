@@ -1,18 +1,41 @@
 package Covid19project.model.Data;
 
+import javax.persistence.*;
 import java.util.Date;
 
 public class Appointment {
 
-    private int appointmentId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private User cpr;
     private Date time;
     private Date date;
-    private TestCenter location;
 
-    public Appointment(Date time, Date date, TestCenter location) {
+    @ManyToOne
+    @JoinColumn(name="testCenterName", insertable = false, updatable = false)
+    private TestCenter location;
+    private String testCenterName;  // foreign key in table Appointments
+
+
+    public Appointment() {
+    }
+
+
+    public Appointment(int id, Date time, Date date, TestCenter location, User cpr) {
+        this.id = id;
         this.time = time;
         this.date = date;
         this.location = location;
+        this.cpr = cpr;
+    }
+
+    public User getCpr() {
+        return cpr;
+    }
+
+    public void setCpr(User cpr) {
+        this.cpr = cpr;
     }
 
     public Date getTime() {
@@ -48,6 +71,5 @@ public class Appointment {
                 '}';
     }
 
-    public Appointment() {
-    }
+
 }

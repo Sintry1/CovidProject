@@ -3,7 +3,11 @@ package Covid19project.model.Data;
 
 
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class User {
 
@@ -14,7 +18,27 @@ public class User {
     private String email;
     private String password;
     private Date dateOfBirth;
+    private String status;
+
+    @ManyToOne
+    @JoinColumn(name="addressid", insertable = false, updatable = false)
     private Address address;
+    private int addressid; // foreign key in table User
+
+    public User(int cpr, String firstName, String surname, String email, String password, Date dateOfBirth, String status, Address address, int addressid) {
+        this.cpr = cpr;
+        this.firstName = firstName;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.status = status;
+        this.address = address;
+        this.addressid = addressid;
+    }
+
+    public User() {
+    }
 
     @Override
     public String toString() {
@@ -70,7 +94,12 @@ public class User {
         this.cpr = CPR;
     }
 
-
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
     public Address getAddress() {
@@ -80,5 +109,6 @@ public class User {
         this.address = address;
     }
 
+    private List<Role> roles;
 
 }

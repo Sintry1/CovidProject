@@ -1,15 +1,21 @@
 package Covid19project.model.Data;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Address {
 
     @Id
-    private int addressId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String streetName;
     private int streetNumber;
     private int postCode;
     private String city;
+
+    public Address() {
+    }
 
     @Override
     public String toString() {

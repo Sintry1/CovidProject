@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100"
                 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:include="fragments/head :: head (pageTitle='Main Page')" />
+<!--<head th:include="fragments/head :: head" />-->
+<head th:insert="fragments/fragments.html :: head"></head>
+
 
 <body>
 
+
+
 <div class="page">
 
-    <div th:replace="~{fragments/navbar :: navbar (active='index')}"></div>
-
-
-
-
+   <div th:replace="~{fragments/fragments.html :: navbar}"></div>
 
     <div class="main__page-card">
         <h1 >COVID19 Test Center</h1>
@@ -23,35 +23,39 @@
 -->
 
 
+
     </div>
 
 
 </div>
-    <footer th:include="fragments/footer :: footer" class="mt-5" />
+    <footer th:include="fragments/fragments.html :: footer" class="mt-5" />
 </div>
 
-
-
-<!--<div class="page">
-    <div class="container">
-        <div th:include="fragments/navbar :: navbar (active='index')" />
-
-
-
-   <div class="main__page-card">
-
-       <h1 class="text__color-blue">Test text</h1>
-       <h2 class="text__color-gray mb-2">Test paragraph</h2>
-                    <button class="btn">Click here</button>
-   </div>
-
-
-        <footer th:include="fragments/footer :: footer" class="mt-5" />
-    </div>
-</div>-->
 
 
 
 </body>
 
 </html>
+
+<!--
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments2.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments2.html :: nav"></header>
+&lt;!&ndash; Page content goes here &ndash;&gt;
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, Spring Boot Security!</h1>
+        <p class="lead">This is the home page of our web application. Anyone can access it, even if they have not signed in.</p>
+        <hr class="my-4">
+        <p>Using this example, you will become more familiar with Spring Security concepts:)</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="https://spring.io/projects/spring-security" role="button">Learn more about Spring Security</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
+-->

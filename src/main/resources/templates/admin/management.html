@@ -3,20 +3,24 @@
 
 <head th:include="fragments/fragments.html :: head" />
 
+
+<style>
+
+</style>
+
+
 <body>
 <div th:replace="~{fragments/fragments.html :: navbar}"></div>
 
 
-
-<main role="main" class="flex-shrink-0">
-  <div class="container mt-5">
-    <div class="jumbotron">
-      <h1 class="display-4">Info</h1>
-    </div>
-  </div>
-</main>
+<h1 style="bottom: 50px">Admin Panel</h1>
 
 
+<div class="btn-group">
+  <a th:href="@{admin/manageUser}"><button> Users</button></a>
+  <a th:href="@{admin/manageAddress}"><button>Addresses</button></a>
+  <a th:href="@{admin/manageTestCenter}"><button>Test Centers</button></a>
+</div>
 
 
 <div th:replace="~{fragments/fragments.html :: footer}"></div>

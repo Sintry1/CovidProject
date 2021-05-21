@@ -1,4 +1,4 @@
-package Covid19project;
+package Covid19project.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,17 +52,13 @@ public class PageController {
         return "booking";
     }
 
-    @GetMapping("/vaccine")
-    public String getVaccine(Model model){
-     model.addAttribute("activePage", "vaccine");
-        return "vaccine";
-    }
 
-   /* @GetMapping("/login")
-    public String getLogin(Model model){
-        model.addAttribute("activePage", "login");
-        return "login";
-    }*/
+
+   @GetMapping("/profile")
+    public String getLogin(){
+
+        return "profile";
+    }
 
 
 }
