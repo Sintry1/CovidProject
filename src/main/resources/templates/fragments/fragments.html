@@ -8,7 +8,9 @@
   <title th:text="${pageTitle}">Template title</title>
   <meta name="description" th:content="${pageTitle}">
   <meta name="author" content="Group name">
+
   <link rel="preconnect" href="https://fonts.gstatic.com">
+
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
   <script src="/js/script.js"></script>
   <script th:src="@{/webjars/bootstrap/5.0.0-beta2/js/bootstrap.bundle.min.js}"></script>
@@ -32,8 +34,12 @@
 
         <a th:href="@{/}">Home</a>
         <a th:href="@{/booking}">Book a test</a>
-        <a th:href="@{/admin}" sec:authorize="isAuthenticated()" >Management</a>
+        <a th:href="@{/admin}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')') or #authorization.expression('hasAuthority(''SECRETARY'')') }" >Management</a>
         <a  th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a>
+
+
+
+       <!-- th:if="${#authorization.expression('hasAuthority(''ADMIN' , 'SECRETARY'')')}"-->
 
      <div class="topnav-right">
          <!--LOGGED IN USER DETAILS-->
@@ -43,6 +49,9 @@
             </h4>
         </div>
 
+         <!--sec:authentication="name"
+         ${#authentication.getPrincipal().getSomeProperty()}
+         th:text="${#authentication.getPrincipal().getFirstName()}"-->
 
         <!-- LOGIN BUTTON-->
         <form th:action="@{/login}"  sec:authorize="isAnonymous()">
@@ -61,7 +70,7 @@
 
 
     </div>
-
+</div>
 
    <!-- <div class="fixed">
 

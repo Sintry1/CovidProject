@@ -6,12 +6,15 @@ import javax.persistence.Id;
 
 public class TestCenter {
 
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int testCenterId;
     private String name;
     private Address adderss;
-    private int addressid;
+    private int center_addressid;
 
 
     @Override
@@ -36,6 +39,22 @@ public class TestCenter {
 
     public void setAdderss(Address adderss) {
         this.adderss = adderss;
+    }
+
+    public int getTestCenterId() {
+        return testCenterId;
+    }
+
+    public void setTestCenterId(int testCenterId) {
+        this.testCenterId = testCenterId;
+    }
+
+    public int getCenterAddressid() {
+        return center_addressid;
+    }
+
+    public void setCenterAddressid(int addressid) {
+        this.center_addressid = addressid;
     }
 
     public TestCenter() {

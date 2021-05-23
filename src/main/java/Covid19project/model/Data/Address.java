@@ -6,9 +6,11 @@ import javax.persistence.Id;
 
 public class Address {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int addressId;
     private String streetName;
     private int streetNumber;
     private int postCode;
@@ -28,6 +30,13 @@ public class Address {
     }
 
 
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
+    }
 
     public String getStreetName() {
         return streetName;

@@ -2,6 +2,8 @@ package Covid19project.model.Data;
 
 
 
+
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class User {
+public class User  {
 
     @Id
     private int cpr;
@@ -17,15 +19,15 @@ public class User {
     private String surname;
     private String email;
     private String password;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String status;
 
-    @ManyToOne
-    @JoinColumn(name="addressid", insertable = false, updatable = false)
+    /*@ManyToOne
+    @JoinColumn(name="addressid", insertable = false, updatable = false)*/
     private Address address;
     private int addressid; // foreign key in table User
 
-    public User(int cpr, String firstName, String surname, String email, String password, Date dateOfBirth, String status, Address address, int addressid) {
+    public User(int cpr, String firstName, String surname, String email, String password, String dateOfBirth, String status, Address address, int addressid) {
         this.cpr = cpr;
         this.firstName = firstName;
         this.surname = surname;
@@ -80,10 +82,10 @@ public class User {
         this.email = email;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -102,11 +104,11 @@ public class User {
     }
 
 
-    public Address getAddress() {
-        return address;
+    public int getAddressId() {
+        return addressid;
     }
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressId(int addressid) {
+        this.addressid = addressid;
     }
 
     private List<Role> roles;

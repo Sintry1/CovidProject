@@ -7,13 +7,13 @@ public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int apptId;
     private User cpr;
     private Date time;
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name="testCenterName", insertable = false, updatable = false)
+   /* @ManyToOne
+    @JoinColumn(name="testCenterName", insertable = false, updatable = false)*/
     private TestCenter location;
     private String testCenterName;  // foreign key in table Appointments
 
@@ -23,11 +23,19 @@ public class Appointment {
 
 
     public Appointment(int id, Date time, Date date, TestCenter location, User cpr) {
-        this.id = id;
+        this.apptId = id;
         this.time = time;
         this.date = date;
         this.location = location;
         this.cpr = cpr;
+    }
+
+    public int getApptId() {
+        return apptId;
+    }
+
+    public void setApptId(int apptId) {
+        this.apptId = apptId;
     }
 
     public User getCpr() {
