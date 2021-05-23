@@ -12,26 +12,26 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "auth_role_id")
-    private int roleId;
+    private int auth_role_id;
 
     @Column(name = "role_name")
-    private String roleName;
+    private String role_name;
 
 
     public int getRoleId() {
-        return roleId;
+        return auth_role_id;
     }
 
     public void setRoleId(int roleId) {
-        this.roleId = roleId;
+        this.auth_role_id = roleId;
     }
 
     public String getRoleName() {
-        return roleName;
+        return role_name;
     }
 
     public void setRoleName(String roleName) {
-        this.roleName = roleName;
+        this.role_name = roleName;
     }
 
 
