@@ -1,6 +1,6 @@
 package Covid19project.Service.AddressService;
 
-import Covid19project.model.Data.Address;
+import Covid19project.Model.Data.Address;
 
 import java.util.List;
 

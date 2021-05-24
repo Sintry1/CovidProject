@@ -1,8 +1,8 @@
 package Covid19project.Service.TestCenterService;
 
 import Covid19project.Repository.TestCenterRepositiry.ITestCenterRepo;
-import Covid19project.model.Data.TestCenter;
-import Covid19project.model.Data.User;
+import Covid19project.Model.Data.TestCenter;
+import Covid19project.Model.Data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

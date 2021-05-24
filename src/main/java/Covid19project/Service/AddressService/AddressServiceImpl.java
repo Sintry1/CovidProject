@@ -1,7 +1,7 @@
 package Covid19project.Service.AddressService;
 
 import Covid19project.Repository.AddressRepository.IAddressRepo;
-import Covid19project.model.Data.Address;
+import Covid19project.Model.Data.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

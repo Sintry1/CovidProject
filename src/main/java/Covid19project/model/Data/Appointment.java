@@ -1,4 +1,4 @@
-package Covid19project.model.Data;
+package Covid19project.Model.Data;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -35,6 +35,22 @@ public class Appointment {
 
     public void setApptId(int apptId) {
         this.appointmentId = apptId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTestCenterName() {
+        return testCenterName;
+    }
+
+    public void setTestCenterName(String testCenterName) {
+        this.testCenterName = testCenterName;
     }
 
     public User getCpr() {

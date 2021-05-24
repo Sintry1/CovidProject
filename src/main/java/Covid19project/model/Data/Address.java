@@ -1,4 +1,4 @@
-package Covid19project.model.Data;
+package Covid19project.Model.Data;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +7,9 @@ import javax.persistence.Id;
 public class Address {
 
 
+    public void setId(int addressId) {
+        this.addressId = addressId;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +22,14 @@ public class Address {
     public Address() {
     }
 
+    public Address(int addressId, String streetName, int streetNumber, int postCode, String city) {
+        this.addressId = addressId;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postCode = postCode;
+        this.city = city;
+    }
+
     @Override
     public String toString() {
         return "Address{" +
@@ -29,6 +40,9 @@ public class Address {
                 '}';
     }
 
+    public int getId() {
+        return addressId;
+    }
 
     public int getAddressId() {
         return addressId;

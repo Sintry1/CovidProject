@@ -1,6 +1,6 @@
 package Covid19project.Service.AppointmentService;
 
-import Covid19project.model.Data.Appointment;
+import Covid19project.Model.Data.Appointment;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package Covid19project.Service.UserService;
 
 import Covid19project.Repository.UserRepository.IUserRepo;
-import Covid19project.model.Data.User;
+import Covid19project.Model.Data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

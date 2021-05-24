@@ -1,4 +1,4 @@
-package Covid19project.model.Data;
+package Covid19project.Model.Data;
 
 
 
@@ -7,6 +7,7 @@ package Covid19project.model.Data;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,7 @@ public class User  {
     private String surname;
     private String email;
     private String password;
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     private String status;
 
     /*@ManyToOne
@@ -27,7 +28,7 @@ public class User  {
     private Address address;
     private int addressid; // foreign key in table User
 
-    public User(int cpr, String firstName, String surname, String email, String password, String dateOfBirth, String status, Address address, int addressid) {
+    public User(int cpr, String firstName, String surname, String email, String password, LocalDate dateOfBirth, String status, Address address, int addressid) {
         this.cpr = cpr;
         this.firstName = firstName;
         this.surname = surname;
@@ -40,6 +41,38 @@ public class User  {
     }
 
     public User() {
+    }
+
+    public int getCpr() {
+        return cpr;
+    }
+
+    public void setCpr(int cpr) {
+        this.cpr = cpr;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public int getAddressid() {
+        return addressid;
+    }
+
+    public void setAddressid(int addressid) {
+        this.addressid = addressid;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
@@ -82,10 +115,10 @@ public class User  {
         this.email = email;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

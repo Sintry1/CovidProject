@@ -1,4 +1,4 @@
-package Covid19project.model.Data;
+package Covid19project.Model.Data;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +13,7 @@ public class TestCenter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int testCenterId;
     private String name;
-    private Address adderss;
+    private Address address;
     private int center_addressid;
 
 
@@ -21,8 +21,28 @@ public class TestCenter {
     public String toString() {
         return "TestCenter{" +
                 "name='" + name + '\'' +
-                ", adderss=" + adderss +
+                ", address=" + address +
                 '}';
+    }
+
+    public int getTestCenterId() {
+        return testCenterId;
+    }
+
+    public void setTestCenterId(int testCenterId) {
+        this.testCenterId = testCenterId;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public int getAddressid() {
+        return addressid;
+    }
+
+    public void setAddressid(int addressid) {
+        this.addressid = addressid;
     }
 
     public String getName() {
@@ -33,12 +53,12 @@ public class TestCenter {
         this.name = name;
     }
 
-    public Address getAdderss() {
-        return adderss;
+    public Address getAddress() {
+        return address;
     }
 
     public void setAdderss(Address adderss) {
-        this.adderss = adderss;
+        this.address = adderss;
     }
 
     public int getTestCenterId() {
@@ -62,6 +82,6 @@ public class TestCenter {
 
     public TestCenter(String name, Address adderss) {
         this.name = name;
-        this.adderss = adderss;
+        this.address = adderss;
     }
 }
