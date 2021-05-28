@@ -3,6 +3,7 @@ package Covid19project.Service.AddressService;
 import Covid19project.Model.Data.Address;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IAddressService {
     //Create
@@ -11,10 +12,12 @@ public interface IAddressService {
     //READ
     List<Address> fetchAllAddresses();
     Address findAddressById(int addressId);
-    Address findAddressByName(String streetName);
+    Address findAddressByPostCode(int postCode);
+    List<Map<String,Object>> findByPostCode(int postCode);
+
 
     //Update
-    Address updateAppointment(int addressId, Address address);
+    Address updateAddress(int addressId, Address address);
 
 
     //Delete

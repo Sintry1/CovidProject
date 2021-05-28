@@ -19,6 +19,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -34,24 +39,33 @@
 
         <a th:href="@{/}">Home</a>
         <a th:href="@{/booking}">Book a test</a>
-        <a th:href="@{/admin}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')') or #authorization.expression('hasAuthority(''SECRETARY'')') }" >Management</a>
+        <a th:href="@{/admin}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')') or #authorization.expression('hasAuthority(''SECRETARY'')')}" >Management</a>
         <a  th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a>
 
 
 
-       <!-- th:if="${#authorization.expression('hasAuthority(''ADMIN' , 'SECRETARY'')')}"-->
 
      <div class="topnav-right">
          <!--LOGGED IN USER DETAILS-->
-        <div class="fixed">
+         <div class="roleadmin">
+             <h4 sec:authorize="isAuthenticated()">
+                 <i th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">ADMIN</i>
+             </h4>
+         </div>
+         <div class="rolesec">
+             <h4 sec:authorize="isAuthenticated()">
+                 <i th:if="${#authorization.expression('hasAuthority(''SECRETARY'')')}">SECRETARY</i>
+             </h4>
+         </div>
+
+
+         <div class="fixed">
             <h4 sec:authorize="isAuthenticated()">
                 <p>Logged user: <span sec:authentication="name"></span></p>
             </h4>
         </div>
 
-         <!--sec:authentication="name"
-         ${#authentication.getPrincipal().getSomeProperty()}
-         th:text="${#authentication.getPrincipal().getFirstName()}"-->
+
 
         <!-- LOGIN BUTTON-->
         <form th:action="@{/login}"  sec:authorize="isAnonymous()">

@@ -1,9 +1,9 @@
 package Covid19project.Repository.AddressRepository;
 
-import Covid19project.model.Data.Address;
-import Covid19project.model.Data.Appointment;
+import Covid19project.Model.Data.Address;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IAddressRepo {
 
@@ -13,10 +13,11 @@ public interface IAddressRepo {
     //READ
     List<Address> fetchAllAddresses();
     Address findAddressById(int addressId);
-    Address findAddressByName(String streetName);
+    Address findAddressByPostCode(int postCode);
+    List<Map<String,Object>> findByPostCode(int postCode);
 
     //Update
-    Address updateAppointment(int addressId, Address address);
+    Address updateAddress(int addressId, Address address);
 
 
     //Delete

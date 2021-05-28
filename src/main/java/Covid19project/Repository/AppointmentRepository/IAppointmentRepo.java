@@ -1,7 +1,6 @@
 package Covid19project.Repository.AppointmentRepository;
 
-import Covid19project.model.Data.Appointment;
-import Covid19project.model.Data.User;
+import Covid19project.Model.Data.Appointment;
 
 import java.util.List;
 
@@ -11,16 +10,17 @@ public interface IAppointmentRepo {
     Appointment addAppointment(Appointment appointment);
 
     //READ
-    List<Appointment> fetchAll();
-    Appointment findAppointmentById(int apptId);
+    List<Appointment> fetchAllAppts();
 
-    Appointment findAppointmentByCpr(int cpr);
+    Appointment findAppointmentById(int apptID);
+
+    Appointment findAppointmentByCpr(Integer cpr);
 
     //Update
-    Appointment updateAppointment(int apptId, Appointment appointment);
+    Appointment updateAppointment(int apptID, Appointment appointment);
 
     //Delete
-    Boolean deleteAppointment(int apptId);
+    Boolean deleteAppointment(int apptID);
 
 
 

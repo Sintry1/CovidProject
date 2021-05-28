@@ -9,14 +9,14 @@ public interface IAppointmentService {
     Appointment addAppointment(Appointment appointment);
 
     //READ
-    List<Appointment> fetchAll();
-    Appointment findAppointmentById(int apptId);
+    List<Appointment> fetchAllAppts();
+    Appointment findAppointmentById(int apptID);
 
-    Appointment findAppointmentByCpr(int cpr);
+    Appointment findAppointmentByCpr(Integer cpr);
 
     //Update
-    Appointment updateAppointment(int apptId, Appointment appointment);
+    Appointment updateAppointment(int apptID, Appointment appointment);
 
     //Delete
-    Boolean deleteAppointment(int apptId);
+    Boolean deleteAppointment(int apptID);
 }

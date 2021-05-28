@@ -1,11 +1,13 @@
 package Covid19project.Service.UserService;
 
+import Covid19project.Model.Data.Role;
 import Covid19project.Repository.UserRepository.IUserRepo;
 import Covid19project.Model.Data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 @Service
 public class UserServiceImpl implements IUserService  {
@@ -19,12 +21,17 @@ public class UserServiceImpl implements IUserService  {
     }
 
     @Override
+    public User addNewUserRole(User user) {
+        return iUserRepo.addNewUserRole(user);
+    }
+
+    @Override
     public List<User> fetchAllUsers() {
         return iUserRepo.fetchAllUsers();
     }
 
     @Override
-    public User findUserByCpr(int cpr) {
+    public User findUserByCpr(Integer cpr) {
         return iUserRepo.findUserByCpr(cpr);
     }
 
@@ -46,5 +53,24 @@ public class UserServiceImpl implements IUserService  {
     @Override
     public Boolean deleteUser(int cpr) {
         return iUserRepo.deleteUser(cpr);
+    }
+
+
+
+    // ROLES
+
+    @Override
+    public List<Role> fetchAllRoles() {
+        return iUserRepo.fetchAllRoles();
+    }
+
+    @Override
+    public Role updateRole(int cpr, Role role) {
+        return iUserRepo.updateRole(cpr, role);
+    }
+
+    @Override
+    public Boolean deleteRole(int cpr) {
+        return iUserRepo.deleteRole(cpr);
     }
 }

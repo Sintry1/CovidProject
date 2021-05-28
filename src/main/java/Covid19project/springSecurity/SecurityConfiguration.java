@@ -52,6 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 */
 
 
+
     @Value("${spring.queries.users-query}")
     private String usersQuery;
 
@@ -74,6 +75,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // URLs matching for access rights
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin").hasAnyAuthority("ADMIN", "SECRETARY")
+                .antMatchers("/admin/manageUser").hasAnyAuthority("ADMIN", "SECRETARY")
+                .antMatchers("/admin/manageAppointment").hasAnyAuthority("ADMIN", "SECRETARY")
+                .antMatchers("/admin/manageAddress").hasAnyAuthority("ADMIN", "SECRETARY")
+                .antMatchers("/admin/manageTestCenter").hasAnyAuthority("ADMIN")
+                .antMatchers("/admin/manageRole").hasAnyAuthority("ADMIN")
                 .antMatchers("/booking").hasAnyAuthority("ADMIN", "SECRETARY", "USER")
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").permitAll()

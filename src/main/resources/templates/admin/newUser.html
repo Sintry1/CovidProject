@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+
+<head th:include="fragments/fragments.html :: head" />
+
+<body>
+<div th:replace="~{fragments/fragments.html :: navbar}"></div>
+
+<div class="container">
+  <div class="row col-lg-8 col-lg-offset-4" style="margin-top: 50px; margin-left: -100px; background-color:#fff;padding:20px;border:solid 1px #000000;">
+
+    <form th:action="@{/addUser}" th:object="${newUser}" method="POST">
+      <h3 class="form-appointment-heading" style="color: black" >Add new user</h3>
+      <br />
+
+      <label style="color: black">CPR: </label>
+      <input type="text" th:field = "*{CPR}" th:placeholder="CPR" class="form-control mb-4 col-4"><br />
+      <label style="color: black">Firstname: </label>
+      <input type="text" th:field ="*{FirstName}" placeholder="Insert Firstname" class="form-control mb-4 col-4"><br />
+      <label style="color: black">Surnume: </label>
+      <input type="text" th:field ="*{Surname}" placeholder="Insert Surname" class="form-control mb-4 col-4"><br />
+      <label style="color: black">Address ID: </label>
+      <input type="text" th:field ="*{AddressId}" placeholder="Address ID" class="form-control mb-4 col-4"><br />
+      <label style="color: black">Email: </label>
+      <input type="email" th:field ="*{Email}" placeholder="Insert Email" class="form-control mb-4 col-4"><br />
+      <label style="color: black">Password: </label>
+      <input type="password" th:field ="*{Password}" placeholder="Insert password" class="form-control mb-4 col-4"><br />
+      <label style="color: black">Birthday: </label>
+      <input type="date" th:field ="*{DateOfBirth}" placeholder="Insert Birthday YYYY-MM-DD " class="form-control mb-4 col-4" max="2021-06-01"><br />
+
+      <br />
+      <button class="btn btn-lg btn-primary" type="Submit"  style="margin-right:10px;">Add user</button>
+
+    </form>
+
+      <!--<div class="form-group">
+        <label for="testCenter" style="color: black">Test Center: </label>
+        <select required name="testCenterId" id="testCenter" class="form-control shadowed-light form-select"
+                aria-label="Test Center selector">
+          <option th:each="TestCenter : ${iTestCenterService.fetchAllCenters()}" th:text="${TestCenter.getName()}"
+                  th:value="${TestCenter.getTestCenterId()}">
+          </option>
+        </select>
+      </div>
+
+      <br />
+
+      <div class="form-group">
+        <label for="date" style="color: black">Date: </label>
+        <input type="date" th:placeholder="YYYY-MM-DD" id="date" name="date" class="form-control" min="2021-06-01" max="2021-12-31" />
+      </div>
+
+      <br />
+
+      <div class="form-group">
+        <label for="time" style="color: black">Time: [09:00 - 21:00] </label>
+        <select name="time" id="time" class="form-control">
+          <option value="09:00">09:00</option>
+          <option value="10:00">10:00</option>
+          <option value="11:00">11:00</option>
+          <option value="12:00">12:00</option>
+          <option value="13:00">13:00</option>
+          <option value="14:00">14:00</option>
+          <option value="15:00">15:00</option>
+          <option value="16:00">16:00</option>
+          <option value="17:00">17:00</option>
+          <option value="18:00">18:00</option>
+          <option value="19:00">19:00</option>
+          <option value="20:00">20:00</option>
+          <option value="21:00">21:00</option>
+
+        </select>
+      </div>
+      <br />-->
+
+
+
+
+
+  </div>
+</div>
+
+
+
+<div th:replace="~{fragments/fragments.html :: footer}"></div>
+</body>
+</html>

@@ -38,11 +38,11 @@ public class TestCenter {
     }
 
     public int getAddressid() {
-        return addressid;
+        return center_addressid;
     }
 
     public void setAddressid(int addressid) {
-        this.addressid = addressid;
+        this.center_addressid = addressid;
     }
 
     public String getName() {
@@ -61,13 +61,6 @@ public class TestCenter {
         this.address = adderss;
     }
 
-    public int getTestCenterId() {
-        return testCenterId;
-    }
-
-    public void setTestCenterId(int testCenterId) {
-        this.testCenterId = testCenterId;
-    }
 
     public int getCenterAddressid() {
         return center_addressid;

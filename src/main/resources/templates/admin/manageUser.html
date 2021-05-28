@@ -4,7 +4,8 @@
 <head th:include="fragments/fragments.html :: head" />
 
 <style>
-    #showUsers {
+
+    #showTables {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 75%;
@@ -12,19 +13,19 @@
 
     }
 
-    #showUsers td, #customers th {
+    #showTables td, #customers th {
         border: 1px solid #ddd;
         padding: 8px;
     }
 
-    #showUsers tr:nth-child(even){background-color: #979c9c;}
-    #showUsers tr:nth-child(odd) {  background-color: #979c9c; }
+    #showTables tr:nth-child(even){background-color: #979c9c;}
+    #showTables tr:nth-child(odd) {  background-color: #979c9c; }
 
 
 
-    #showUsers tr:hover {background-color: #ddd;}
+    #showTables tr:hover {background-color: #ddd;}
 
-    #showUsers th {
+    #showTables th {
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
@@ -33,19 +34,29 @@
     }
 </style>
 
-
 <body>
 <div th:replace="~{fragments/fragments.html :: navbar}"></div>
-<h1> Manage Users </h1>
+
+<div class="container">
+    <h1> Manage Users <a th:href="@{/admin}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a> </h1>
+
+    <!--SEARCH BAR -->
+    <form style="color: black" th:action="@{/admin/manageUser}" method="get">
+        <input  id="txtSearch" type="text" placeholder="Search by CPR" th:name="keyword">
+        <button type="submit">Search</button>
+    </form><br /><br />
+
+    <!--ADD NEW USER BUTTON-->
+    <a th:href = "@{/showNewUserForm}" class="btn btn-primary btn-sm mb-3">Add User</a>
 
 
 
-<table id="showUsers">
+<table id="showTables">
     <tr>
         <th>CPR</th>
         <th>Firstname</th>
         <th>Surname</th>
-        <th>AddressID</th>
+        <th>Address</th>
         <th>Email</th>
         <th>DateOfBirth</th>
 
@@ -54,7 +65,8 @@
         <td th:text="${user.getCPR()}"></td>
         <td th:text="${user.getFirstName()}"></td>
         <td th:text="${user.getSurname()}"></td>
-        <td th:text="${user.getAddressId()}"></td>
+        <!-- <td th:text="${user.getAddressId()}"></td>-->
+        <td th:text="${iAddressService.findAddressById(user.getAddressId()).toString()}"></td>
         <td th:text="${user.getEmail()}"></td>
         <td th:text="${user.getDateOfBirth()}"></td>
     </tr>
@@ -62,7 +74,7 @@
 
 
 
-
+</div>
 
 <div th:replace="~{fragments/fragments.html :: footer}"></div>
 </body>

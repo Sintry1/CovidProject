@@ -13,11 +13,13 @@ public class TestCenterServiceImpl implements ITestCenterService{
     @Autowired
     ITestCenterRepo iTestCenterRepo;
 
+    //CREATE
     @Override
     public TestCenter addTestCenter(TestCenter testCenter) {
         return null;
     }
 
+    //READ
     @Override
     public List<TestCenter> fetchAllCenters() {
         return iTestCenterRepo.fetchAllCenters();
@@ -25,21 +27,23 @@ public class TestCenterServiceImpl implements ITestCenterService{
 
     @Override
     public TestCenter findTestCenterById(int testCenterId) {
-        return null;
+        return iTestCenterRepo.findTestCenterById(testCenterId);
     }
 
     @Override
     public TestCenter findTestCenterByName(String name) {
-        return null;
+        return iTestCenterRepo.findTestCenterByName(name);
     }
 
+    //UPDATE
     @Override
     public User updateTestCenter(int testCenterId, TestCenter testCenter) {
-        return null;
+        return iTestCenterRepo.updateTestCenter(testCenterId,testCenter);
     }
 
+    //DELETE
     @Override
     public Boolean deleteTestCenter(int testCenterId) {
-        return null;
+        return iTestCenterRepo.deleteTestCenter(testCenterId);
     }
 }

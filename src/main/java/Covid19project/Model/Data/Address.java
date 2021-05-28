@@ -7,9 +7,6 @@ import javax.persistence.Id;
 public class Address {
 
 
-    public void setId(int addressId) {
-        this.addressId = addressId;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,17 +29,10 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "streetName='" + streetName + '\'' +
-                ", streetNumber=" + streetNumber +
-                ", postCode=" + postCode +
-                ", city='" + city + '\'' +
-                '}';
+        return streetName + ", " + streetNumber + ", " + postCode + ", " + city;
     }
 
-    public int getId() {
-        return addressId;
-    }
+
 
     public int getAddressId() {
         return addressId;
