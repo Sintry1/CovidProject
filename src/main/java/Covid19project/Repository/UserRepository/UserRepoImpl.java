@@ -63,7 +63,7 @@ public class UserRepoImpl implements IUserRepo{
     @Override
     public User updateUser(int cpr, User user) {
         String sql = "UPDATE user SET firstName=?, surname=?, addressid=?, email=? WHERE cpr=?";
-        jdbcTemplate.update(sql, user.getFirstName(), user.getSurname(), user.getAddressId(), user.getEmail());
+        jdbcTemplate.update(sql, user.getFirstName(), user.getSurname(), user.getAddressId(), user.getEmail(),cpr);
 
         return null;
     }

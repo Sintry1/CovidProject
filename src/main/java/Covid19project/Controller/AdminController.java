@@ -8,10 +8,7 @@ import Covid19project.Service.UserService.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,29 +41,61 @@ public class AdminController {
         else {
             model.addAttribute("myUsers", userList);
         }
-        return "admin/manageUser";
+        return "admin/User/manageUser";
     }
 
     @GetMapping("/showNewUserForm")
     public String newUserForm(Model model){
         model.addAttribute("iUserService", iUserService);
         model.addAttribute("newUser", new User());
-        return "admin/newUser";
+        return "admin/User/newUser";
     }
     @PostMapping("/addUser")
     public String addNewUser(@ModelAttribute User user) {
         iUserService.addNewUser(user);
         iUserService.addNewUserRole(user);
-        return "admin/management";
+        return "redirect:/admin/manageUser";
+
     }
+
+    @GetMapping("/updateUser/{cpr}")
+    public String updateAppointment(@PathVariable int cpr, Model model){
+        model.addAttribute("iAddressService", iAddressService);
+        //get user by cpr
+        User user = iUserService.findUserByCpr(cpr);
+
+        //set user as a mode attribute to pre populate the form
+        model.addAttribute("updatedUser",user);
+
+        return "admin/User/updateUser";
+    }
+    @PostMapping("/saveUser/{cpr}")
+    public String saveUser(@PathVariable int cpr, User user) {
+        iUserService.updateUser(cpr, user);
+        return "redirect:/admin/manageUser";
+
+    }
+
+
+
+   /* @GetMapping("/deleteUser/{cpr}")
+    public String deleteUser(@PathVariable int cpr) {
+        iUserService.deleteUser(cpr);
+        return "redirect:/admin/manageUser";
+    }*/
 
 
     @GetMapping("/admin/manageAddress")
     public String getManageAddress(Model model){
         List<Address> addressList = iAddressService.fetchAllAddresses();
-
         model.addAttribute("myAddresses", addressList);
-        return "admin/manageAddress";
+        return "admin/Address/manageAddress";
+    }
+
+    @GetMapping("/deleteAddress/{addressid}")
+    public String deleteAddress(@PathVariable int addressid) {
+        iAddressService.deleteAddress(addressid);
+        return "redirect:/admin/manageAddress";
     }
 
 
@@ -76,12 +105,15 @@ public class AdminController {
         model.addAttribute("iAddressService", iAddressService);
         model.addAttribute("myTestCenters", testCentersList);
 
-        for(TestCenter testCenter : testCentersList) {
-            System.out.println(testCenter.getName());
-        }
-
-        return "admin/manageTestCenter";
+        return "admin/TestCenter/manageTestCenter";
     }
+    @GetMapping("/deleteTestCenter/{testcenterId}")
+    public String deleteTestCenter(@PathVariable int testcenterId) {
+       iTestCenterService.deleteTestCenter(testcenterId);
+        return "redirect:/admin/manageTestCenter";
+    }
+
+
 
 
     @GetMapping("/admin/manageAppointment")
@@ -97,22 +129,15 @@ public class AdminController {
             model.addAttribute("myAppointments", appointmentList);
         }
 
-   /* System.out.println(appointmentList.toString());
-
-        for(Appointment appointment : appointmentList) {
-            System.out.println(appointment.getCprOfUser());
-            System.out.println(appointment.getApptId());
-        }*/
-
-        return "admin/manageAppointment";
+        return "admin/Appointment/manageAppointment";
 
     }
 
 
-    @PostMapping("/deleteAppointment")
-    public String deleteAppointment(@ModelAttribute Appointment appointment) {
-        iAppointmentService.deleteAppointment(appointment.getApptId());
-        return "admin/management";
+    @GetMapping("/deleteAppointment/{apptID}")
+    public String deleteAppointment(@PathVariable int apptID) {
+        iAppointmentService.deleteAppointment(apptID);
+        return "redirect:/admin/manageAppointment";
     }
 
 }

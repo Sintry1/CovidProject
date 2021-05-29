@@ -1,6 +1,7 @@
 package Covid19project.Controller;
 
 import Covid19project.Model.Data.Appointment;
+import Covid19project.Model.Data.User;
 import Covid19project.Service.AddressService.IAddressService;
 import Covid19project.Service.AppointmentService.IAppointmentService;
 import Covid19project.Service.TestCenterService.ITestCenterService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -42,6 +44,27 @@ public class AppointmentController {
 
         return "success";   // After appointment is made, user get redirected to Success page.
     }
+
+    @GetMapping("/updateAppointment/{apptID}")
+    public String updateAppointment(@PathVariable int apptID, Model model){
+        model.addAttribute("iTestCenterService", iTestCenterService);
+        //get appointment by id
+        Appointment appointment = iAppointmentService.findAppointmentById(apptID);
+
+        //set appointment as a mode attribute to pre populate the form
+        model.addAttribute("updatedAppointment",appointment);
+
+        return "admin/Appointment/updateAppointment";
+    }
+
+
+    @PostMapping("/saveAppointment/{apptID}")
+    public String saveAppointment(@PathVariable int apptID, Appointment appointment) {
+        iAppointmentService.updateAppointment(apptID, appointment);
+        return "redirect:/profile";
+
+    }
+
 
 
 
