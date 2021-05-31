@@ -42,6 +42,9 @@
         <a th:href="@{/admin}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')') or #authorization.expression('hasAuthority(''SECRETARY'')')}" >Management</a>
         <a  th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a>
 
+       <!-- <h4 style="margin-right: 100px" sec:authorize="isAuthenticated()">
+            <p>Logged user: <span sec:authentication="name"></span></p>
+        </h4>-->
 
 
 
@@ -64,6 +67,8 @@
                 <p>Logged user: <span sec:authentication="name"></span></p>
             </h4>
         </div>
+
+
 
 
 
@@ -101,7 +106,7 @@
 <footer th:fragment="footer">
     <p class="text__color-blue"> © <span itemprop="copyrightYear">2021</span>
         Developed by:&nbsp;
-        <a class="text__color-pink" title="Group name" href="#">Group name</a>
+        <a class="text__color-pink" title="Group name" href="#"># 4 people #</a>
     </p>
 </footer>
 
