@@ -11,8 +11,8 @@
     <!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
     <form th:action="@{/login}" method="post" class="form-signin">
       <h3 class="form-signin-heading" style="color: black" th:text="Login"></h3>
-      <br /> <input type="text" id="cpr" name="cpr" th:placeholder="CPR" class="form-control" /> <br />
-             <input type="password" th:placeholder="Password" id="password" name="password" class="form-control" /> <br />
+      <br /> <input required type="number" id="cpr" name="cpr" th:placeholder="CPR" class="form-control" /> <br />
+             <input required type="password" th:placeholder="Password" id="password" name="password" class="form-control" pattern="[a-zA-Z0-9]+" /> <br />
 
       <div align="center" th:if="${param.error}">
         <p style="font-size: 20px; color: #FF1C19;"> Wrong  credentials</p>
