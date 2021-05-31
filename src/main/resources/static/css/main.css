@@ -37,21 +37,21 @@ body {
 
 /*LOGGED IN USER*/
 div.fixed {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 75px;
     width: 150px;
     color:black
 }
 div.roleadmin {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 150px;
     width: 150px;
     color:black
 }
 div.rolesec {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 195px;
     width: 150px;
@@ -110,16 +110,16 @@ div.rolesec {
 
 .main__page-card h1 {
     width: 80%;
-    font-size: 68px;
+    font-size: 50px;
     color: #97bacb;
 }
 
 .main__page-card h2 {
-    font-size: 40px;
+    font-size: 30px;
     color: #97bacb;
 }
 .main__page-card h3 {
-    font-size: 20px;
+    font-size: 15px;
     color: #97bacb;
 }
 
@@ -134,7 +134,7 @@ footer {
     text-align: center;
     width: 100%;
     bottom: 0;
-    height: 30px;
+    height: 20px;
     padding-bottom: 10px;
     opacity: 0.3;
 }
