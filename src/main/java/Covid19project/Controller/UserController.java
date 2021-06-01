@@ -10,11 +10,9 @@ import Covid19project.Service.UserService.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -58,7 +56,7 @@ public class UserController {
     @GetMapping("/profile")
     public String getProfile() {
 
-        return "profile";
+        return "profile/profile";
     }
 
     @PostMapping("/myappointments")
@@ -67,7 +65,7 @@ public class UserController {
 
         model.addAttribute("iTestCenterService", iTestCenterService);
         model.addAttribute("userCpr", iAppointmentService.findAppointmentByCpr(cpr));
-        return "myappointments";
+        return "profile/myappointments";
     }
 
     @PostMapping("/mydetails")
@@ -75,8 +73,15 @@ public class UserController {
     {
         model.addAttribute("iAddressService", iAddressService);
         model.addAttribute("userCprDetails", iUserService.findUserByCpr(cpr));
-        return "mydetails";
+        return "profile/mydetails";
     }
+
+    @GetMapping("/deleteMyAppointment/{apptID}")
+    public String deleteAppointment(@PathVariable int apptID) {
+        iAppointmentService.deleteAppointment(apptID);
+        return "redirect:/profile";
+    }
+
 
 
 

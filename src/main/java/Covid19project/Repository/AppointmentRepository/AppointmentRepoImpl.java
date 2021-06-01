@@ -31,7 +31,7 @@ public class AppointmentRepoImpl implements IAppointmentRepo{
 
     @Override
     public Appointment findAppointmentById(int apptID) {
-        String sql = "SELECT * FROM appointment WHERE idappointment=?";
+        String sql = "SELECT * FROM appointment WHERE apptID=?";
         RowMapper<Appointment> rowMapper = new BeanPropertyRowMapper<>(Appointment.class);
         Appointment myAppointment = jdbcTemplate.queryForObject(sql, rowMapper, apptID);
         return myAppointment;
@@ -49,11 +49,15 @@ public class AppointmentRepoImpl implements IAppointmentRepo{
 
     @Override
     public Appointment updateAppointment(int apptID, Appointment appointment) {
+        String sql = "UPDATE appointment SET apptID=?, testCenterId=?, cprOfUser=?, time=?, date=? WHERE apptID=?";
+        jdbcTemplate.update(sql, appointment.getApptId() ,appointment.getTestCenterId(), appointment.getCprOfUser() ,appointment.getTime(), appointment.getDate(), apptID);
+
         return null;
     }
 
     @Override
     public Boolean deleteAppointment(int apptID) {
-        return null;
+        String sql = "DELETE FROM appointment WHERE apptID=?";
+        return jdbcTemplate.update(sql,apptID) >= 0;
     }
 }

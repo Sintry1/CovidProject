@@ -15,6 +15,7 @@
     }
 
     #showTables td {
+        text-align: center;
         border: 1px solid #ddd;
         padding: 8px;
     }
@@ -29,7 +30,7 @@
     #showTables th {
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: left;
+        text-align: center;
         background-color: #97bacb;
         color: black;
     }
@@ -55,8 +56,10 @@
             <th>CPR</th>
             <th>Time</th>
             <th>Date</th>
-            <th>Manage</th>
-            <th>#</th>
+            <th>###</th>
+            <th>Actions</th>
+
+
       <!--  <tr th:if="${myAppointments.empty}">
             <td colspan="2"> No Appointemnts  yet </td>
         </tr>-->
@@ -69,14 +72,13 @@
             <td th:text="${appointment.getCprOfUser()}"></td>
             <td th:text="${appointment.getTime()}"></td>
             <td th:text="${appointment.getDate()}"></td>
-        <td>
-            <button style="margin:auto; display:block;" type="submit"  class=" btn btn-primary"
-                    th:action="@{/deleteAppointment}" th:method="post">Update</button>
-        </td>
-        <td>
-            <button style="margin:auto; display:block;" type="submit" class=" btn btn-danger"
-                    th:action="@{/deleteAppointment}" th:method="post">Delete</button>
-        </td>
+
+        <td><a class="btn btn-primary"
+               th:href="@{/updateAppointment/{apptID}(apptID=${appointment.getApptId()})}">Update</a> </td>
+
+        <td><a class="btn btn-warning"
+               th:href="@{/deleteAppointment/{apptID}(apptID=${appointment.getApptId()})}">Cancel</a></td>
+
         </tr>
     </table>
 </div>

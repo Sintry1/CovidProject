@@ -15,7 +15,8 @@
 
 
 
-    <h2>Your appointment <a th:href="@{/profile}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a> </h2>
+    <h2>Your appointment <a th:href="@{/profile}" type="submit"
+                            class="text-uppercase btn btn-primary shadowed w-50">Back</a> </h2>
     <table class="table table-striped">
       <tr>
         <th>Id</th>
@@ -23,6 +24,8 @@
         <th>CPR</th>
         <th>TIME</th>
         <th>DATE</th>
+        <th>###</th>
+        <th>Actions</th>
 
       </tr>
       <tr th:each="appointment: ${userCpr}">
@@ -32,6 +35,13 @@
         <td th:text="${appointment.getCprOfUser()}"></td>
         <td th:text="${appointment.getTime()}"></td>
         <td th:text="${appointment.getDate()}"></td>
+
+        <td><a class="btn btn-primary"
+               th:href="@{/updateAppointment/{apptID}(apptID=${appointment.getApptId()})}">Update</a> </td>
+
+        <td><a class="btn btn-warning"
+               th:href="@{/deleteMyAppointment/{apptID}(apptID=${appointment.getApptId()})}">Cancel</a></td>
+
       </tr>
     </table>
 

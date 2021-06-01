@@ -14,7 +14,8 @@
 
     }
 
-    #showTables td, #customers th {
+    #showTables td {
+        text-align: center;
         border: 1px solid #ddd;
         padding: 8px;
     }
@@ -29,40 +30,45 @@
     #showTables th {
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: left;
+        text-align: center;
         background-color: #97bacb;
         color: black;
     }
 </style>
 
-
 <body>
 <div th:replace="~{fragments/fragments.html :: navbar}"></div>
 
-
 <div class="container">
-<h1> Manage Addresses <a th:href="@{/admin}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a> </h1>
+    <h1> Manage Test Centers <a th:href="@{/admin}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a> </h1>
 
 
 
 <table id="showTables">
     <tr>
         <th>ID</th>
-        <th>Street name</th>
-        <th>Street number</th>
-        <th>Post Code</th>
-        <th>City</th>
+        <th>Test Center  Name</th>
+        <th>Address </th>
+        <th>Actions</th>
+
 
     </tr>
-    <tr th:each="address :  ${myAddresses}">
-        <td th:text="${address.getAddressId()}"></td>
-        <td th:text="${address.getStreetName()}"></td>
-        <td th:text="${address.getStreetNumber()}"></td>
-        <td th:text="${address.getPostCode()}"></td>
-        <td th:text="${address.getCity()}"></td>
+    <tr th:each="TestCenter :  ${myTestCenters}">
+        <td th:text="${TestCenter.getTestCenterId()}"></td>
+        <td th:text="${TestCenter.getName()}"></td>
+       <!-- <td th:text="${TestCenter.getCenterAddressid()}"></td>-->
+       <td th:text="${iAddressService.findAddressById(TestCenter.getCenterAddressid()).toString()}"></td>
+
+        <!--<td><button  type="submit"  class=" btn btn-primary"
+                     th:action="@{/deleteAppointment}" th:method="post">Update</button> </td>-->
+
+        <td><a class="btn btn-warning"
+               th:href="@{/deleteTestCenter/{testcenterId}(testcenterId=${TestCenter.getTestCenterId()})}">Remove</a></td>
     </tr>
 </table>
+
 </div>
+
 
 <div th:replace="~{fragments/fragments.html :: footer}"></div>
 </body>
