@@ -29,7 +29,7 @@ public class AdminController {
         return "admin/management";
     }
 
-
+    // DISPLAY ALL USERS
     @GetMapping("/admin/manageUser")
     public String displayUsers(Model model, Integer keyword) {
         List<User> userList = iUserService.fetchAllUsers();
@@ -44,12 +44,14 @@ public class AdminController {
         return "admin/User/manageUser";
     }
 
+    // NEW USER FORM
     @GetMapping("/showNewUserForm")
     public String newUserForm(Model model){
         model.addAttribute("iUserService", iUserService);
         model.addAttribute("newUser", new User());
         return "admin/User/newUser";
     }
+    // CREATE USER
     @PostMapping("/addUser")
     public String addNewUser(@ModelAttribute User user) {
         iUserService.addNewUser(user);
@@ -58,6 +60,7 @@ public class AdminController {
 
     }
 
+    // UPDATE USER
     @GetMapping("/updateUser/{cpr}")
     public String updateAppointment(@PathVariable int cpr, Model model){
         model.addAttribute("iAddressService", iAddressService);
@@ -76,7 +79,7 @@ public class AdminController {
 
     }
 
-
+    // DELETE USER
 
    /* @GetMapping("/deleteUser/{cpr}")
     public String deleteUser(@PathVariable int cpr) {
@@ -85,59 +88,10 @@ public class AdminController {
     }*/
 
 
-    @GetMapping("/admin/manageAddress")
-    public String getManageAddress(Model model){
-        List<Address> addressList = iAddressService.fetchAllAddresses();
-        model.addAttribute("myAddresses", addressList);
-        return "admin/Address/manageAddress";
-    }
-
-    @GetMapping("/deleteAddress/{addressid}")
-    public String deleteAddress(@PathVariable int addressid) {
-        iAddressService.deleteAddress(addressid);
-        return "redirect:/admin/manageAddress";
-    }
-
-
-    @GetMapping("/admin/manageTestCenter")
-    public String getManageTestCenter(Model model){
-        List<TestCenter> testCentersList = iTestCenterService.fetchAllCenters();
-        model.addAttribute("iAddressService", iAddressService);
-        model.addAttribute("myTestCenters", testCentersList);
-
-        return "admin/TestCenter/manageTestCenter";
-    }
-    @GetMapping("/deleteTestCenter/{testcenterId}")
-    public String deleteTestCenter(@PathVariable int testcenterId) {
-       iTestCenterService.deleteTestCenter(testcenterId);
-        return "redirect:/admin/manageTestCenter";
-    }
 
 
 
 
-    @GetMapping("/admin/manageAppointment")
-    public String getManageAppointment(Model model,Integer keyword){
-        List<Appointment> appointmentList = iAppointmentService.fetchAllAppts();
-        model.addAttribute("iUserService", iUserService);
-        model.addAttribute("iTestCenterService", iTestCenterService);
 
-        if(keyword != null){
-            model.addAttribute("myAppointments", iAppointmentService.findAppointmentByCpr(keyword));
-        }
-        else {
-            model.addAttribute("myAppointments", appointmentList);
-        }
-
-        return "admin/Appointment/manageAppointment";
-
-    }
-
-
-    @GetMapping("/deleteAppointment/{apptID}")
-    public String deleteAppointment(@PathVariable int apptID) {
-        iAppointmentService.deleteAppointment(apptID);
-        return "redirect:/admin/manageAppointment";
-    }
 
 }

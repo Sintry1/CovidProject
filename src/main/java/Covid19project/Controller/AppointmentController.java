@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class AppointmentController {
 
@@ -26,16 +28,41 @@ public class AppointmentController {
     @Autowired
     IAddressService iAddressService;
 
-    @GetMapping("/booking")  // Appointment interface
+    @GetMapping("/booking")
     public String getBooking(Model model){
         model.addAttribute("iTestCenterService", iTestCenterService);
         model.addAttribute("iAppointmentService", iAppointmentService);
         model.addAttribute("iUserService", iUserService);
-        model.addAttribute("appointment", "booking");
+        //model.addAttribute("appointment", "booking");
         return "booking";
     }
 
+    // DIPSLAY APPOINTMENTS
+    @GetMapping("/admin/manageAppointment")
+    public String getManageAppointment(Model model,Integer keyword){
+        List<Appointment> appointmentList = iAppointmentService.fetchAllAppts();
+        model.addAttribute("iUserService", iUserService);
+        model.addAttribute("iTestCenterService", iTestCenterService);
 
+        if(keyword != null){
+            model.addAttribute("myAppointments", iAppointmentService.findAppointmentByCpr(keyword));
+        }
+        else {
+            model.addAttribute("myAppointments", appointmentList);
+        }
+
+        return "admin/Appointment/manageAppointment";
+
+    }
+
+    // DELETE APPOINTMENT
+    @GetMapping("/deleteAppointment/{apptID}")
+    public String deleteAppointment(@PathVariable int apptID) {
+        iAppointmentService.deleteAppointment(apptID);
+        return "redirect:/admin/manageAppointment";
+    }
+
+    // CREATE APPOINTMENT
 
     @PostMapping("/success")
     public String addNewAppointment(@ModelAttribute Appointment appointment,Model model) {

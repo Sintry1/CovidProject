@@ -19,11 +19,11 @@
       <input type="hidden" th:field ="*{CPR}"/>
 
       <label style="color: black">Firstname: </label>
-      <input type="text" th:field ="*{FirstName}" placeholder="Insert Firstname" class="form-control mb-4 col-4"><br />
+      <input required type="text" th:field ="*{FirstName}" placeholder="Insert Firstname" class="form-control mb-4 col-4"><br />
       <label style="color: black">Surnume: </label>
-      <input type="text" th:field ="*{Surname}" placeholder="Insert Surname" class="form-control mb-4 col-4"><br />
+      <input required type="text" th:field ="*{Surname}" placeholder="Insert Surname" class="form-control mb-4 col-4"><br />
       <label style="color: black">Address ID: </label>
-      <input type="text" th:field ="*{AddressId}" placeholder="Address ID" class="form-control mb-4 col-4"><br />
+      <input required type="text" th:field ="*{AddressId}" placeholder="Address ID" class="form-control mb-4 col-4"><br />
 
      <!-- <label for="testCenter" style="color: black">Address: </label>
       <select required name="testCenterId" id="testCenter" class="form-control shadowed-light form-select"
