@@ -29,12 +29,6 @@ public class UserController {
     IAddressService iAddressService;
 
 
-   /* @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
-    public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login"); // resources/template/login.html
-        return modelAndView;
-    }*/
 
     @GetMapping("/login")
     public String login(){
@@ -85,75 +79,9 @@ public class UserController {
 
 
 
-
 }
 
 
-    /*@RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index"); // resources/template/index.html
-        return modelAndView;
-    }*/
 
-
-
- /*  @PostMapping("/profile")
-    public String getProfileAppts(@RequestParam("cpr") int cpr){
-    iAppointmentService.findAppointmentByCpr(cpr);
-
-      model.addAttribute("userAppointment", iAppointmentService.findAppointmentByCpr(cpr));
-       model.addAttribute("iAppointmentService", iAppointmentService.fetchAllAppts());
-        return "profile";
-    }*/
-
-
-
-
-    /*@GetMapping("/profile")
-    public String showStudentBySurname(Model model) {
-
-
-        model.addAttribute("search", iAppointmentService.findAppointmentByCpr());
-        return "profile";
-    }*/
-
-
-
-
-
-
-   /* @GetMapping("/")
-    public String index(Model model){
-        //List<Person> list = repo.fetchAll();
-        //System.out.println(list.toString());
-        model.addAttribute("users", repo.fetchAll());
-        return "home/index";
-
-    }
-
-    @PostMapping("/create")
-    public String addPerson(User user){
-        System.out.println("addPerson called " + user.getName());
-        repo.addPerson(user);
-        //return "index";
-        return "redirect:/"; // will behave as if the browser asked for the "/"
-    }
-
-    @PostMapping(value = "/edit" , params = "delete")
-    public String delete(@RequestParam("id") int id){
-        System.out.println("Delete method called on ID: " +id);
-        repo.delete(id);
-        return "redirect:/";
-
-    }
-
-    @PostMapping(value = "/edit" , params = "update")
-    public String update(User user){
-        System.out.println("ID : " + user.getId() + " Updated with : " + user.getName());
-        repo.update(user);
-        return "redirect:/";
-
-    }*/
 
 

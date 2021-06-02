@@ -1,21 +1,3 @@
-<!--
-<!doctype html>
-<html lang="en">
-
-<head th:include="fragments/fragments.html :: head" />
-
-<body>
-<div class="page">
-    <div th:include="fragments/fragments.html :: navbar" />
-    <div class="main__page-card">
-        <h2 class="text__color-gray mb-2">Appointment made successful</h2>
-        <a th:href="@{/}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Go Back</a>
-    </div>
-</div>
-<footer th:include="fragments/fragments.html :: footer" class="mt-5" />
-</body>
-
-</html>-->
 
 <html>
 
@@ -75,7 +57,7 @@
     <p>Time ..<i class="arrow right"></i> <b th:text="${appointment.getTime()}"></b> </p>
     <p>Date ..<i class="arrow right"></i> <b th:text="${appointment.getDate()}"></b> </p>
     <p>Test Center ..<i class="arrow right"></i> <b th:text="${iTestCenterService.findTestCenterById(appointment.getTestCenterId()).getName()}"></b> </p>
-    <!--<p>Address</p> <i class="arrow right"></i> <b th:text="${appointment.getTime()}"></b>-->
+
 
     <a th:href="@{/}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a>
 </div>

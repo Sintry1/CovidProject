@@ -35,7 +35,7 @@
 
       <div class="form-group">
         <label for="date" style="color: black">Date: </label>
-        <input type="date" th:placeholder="YYYY-MM-DD" id="date" name="date" class="form-control" min="2021-06-01" max="2021-12-31" />
+        <input required type="date" th:placeholder="YYYY-MM-DD" id="date" name="date" class="form-control" min="2021-06-01" max="2021-12-31" />
       </div>
 
       <br />
@@ -70,55 +70,6 @@
   </div>
 </div>
 
-<!--<div class="container shadowed mt-2">
-  <div class="row">
-    <div class="col-7">
-      <h1 class="page__header ms-4">Make an appointment</h1>
-    </div>
-
-  </div>
-  <form class="row g-3" th:action="@{/booking}" method="POST">
-
-    <div class="col-5">
-      <div class="container w-50 pt-5">
-        <label for="userCpr" class="form-label text__color-gray" >CPR:</label>
-        <input type="text" class="form-control" name="userCpr" placeholder="210792" >
-        <label for="testCenterId" class="form-label text__color-gray">Test Center ID:</label>
-        <select required name="testCenterId"  class="form-control shadowed-light form-select"
-                aria-label="Test Center selector">
-          <option th:each="TestCenter : ${iTestCenterService.fetchAllCenters()}" th:text="${TestCenter.getName()}"
-                  th:value="${TestCenter.getTestCenterId()}"></option>
-        </select>
-
-        <div class="form-group">
-          <label for="date">Date:</label>
-          <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
-                   name="date" id="date" placeholder="Date"/>
-            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-              <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
-            </div>
-          </div>
-        </div>
-
-
-          </div>
-        <label for="date" class="form-label text__color-gray">Phone Number:</label>
-        <input required type="tel" class="form-control" name="date" placeholder="+45689428"
-               pattern="[0-9]{8}">
-        <button type="submit" name="submit"
-                class="text-uppercase btn btn-primary mt-5  shadowed w-100">Next</button>
-      </div>
-    </div>
-  </form>-->
-
-
-
-<!--<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/assets/moment/moment.min.js}"></script>
-<script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>-->
 
 
 <script>
