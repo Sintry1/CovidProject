@@ -1,6 +1,7 @@
 package Covid19project.Controller;
 
 import Covid19project.Model.Data.TestCenter;
+import Covid19project.Model.Data.User;
 import Covid19project.Service.AddressService.IAddressService;
 import Covid19project.Service.AppointmentService.IAppointmentService;
 import Covid19project.Service.TestCenterService.ITestCenterService;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -34,6 +37,14 @@ public class TestCenterController {
 
         return "admin/TestCenter/manageTestCenter";
     }
+
+    @PostMapping("/addCenter")
+    public String addNewCenter(@ModelAttribute TestCenter testCenter) {
+        iTestCenterService.addTestCenter(testCenter);
+        return "redirect:/admin/manageTestCenter";
+
+    }
+
     // DELETE TEST CENTER
     @GetMapping("/deleteTestCenter/{testcenterId}")
     public String deleteTestCenter(@PathVariable int testcenterId) {
