@@ -69,10 +69,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception { // Configuring the access rights for each type of user.
 
         http.authorizeRequests()
-                // URLs matching for access rights
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin").hasAnyAuthority("ADMIN", "SECRETARY")
                 .antMatchers("/admin/manageUser").hasAnyAuthority("ADMIN")
