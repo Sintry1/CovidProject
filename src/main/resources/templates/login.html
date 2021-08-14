@@ -12,10 +12,10 @@
     <form th:action="@{/login}" method="post" class="form-signin">
       <h3 class="form-signin-heading" style="color: black" th:text="Login"></h3>
       <br /> <input required type="number" id="cpr" name="cpr" th:placeholder="CPR" class="form-control" /> <br />
-             <input required type="password" th:placeholder="Password" id="password" name="password" class="form-control" pattern="[a-zA-Z0-9]+" /> <br />
+             <input required type="password" th:placeholder="password" id="password" name="password" class="form-control" pattern="[a-zA-Z0-9]+" />  <br />
 
       <div align="center" th:if="${param.error}">
-        <p style="font-size: 20px; color: #FF1C19;"> Wrong  credentials</p>
+        <p style="font-size: 20px; color: #FF1C19;"> The credentials you entered are incorrect. Please try again or contact an Administrator for help.</p>
       </div>
       <button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login" style="margin-right:10px;"></button>
 
