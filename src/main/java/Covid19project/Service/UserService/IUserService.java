@@ -24,7 +24,7 @@ public interface IUserService {
 
     // ROLES
     List<Role> fetchAllRoles();
-    Role updateRole(int cpr, Role role);
-    Boolean deleteRole(int cpr);
+    Role updateRole(Long cpr, Role role);
+    Boolean deleteRole(Long cpr);
 
 }

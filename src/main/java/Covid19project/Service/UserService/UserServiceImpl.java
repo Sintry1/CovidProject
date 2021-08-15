@@ -68,12 +68,12 @@ public class UserServiceImpl implements IUserService  {
     }
 
     @Override
-    public Role updateRole(int cpr, Role role) {
+    public Role updateRole(Long cpr, Role role) {
         return iUserRepo.updateRole(cpr, role);
     }
 
     @Override
-    public Boolean deleteRole(int cpr) {
+    public Boolean deleteRole(Long cpr) {
         return iUserRepo.deleteRole(cpr);
     }
 }

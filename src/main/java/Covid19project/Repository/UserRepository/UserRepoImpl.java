@@ -40,7 +40,7 @@ public class UserRepoImpl implements IUserRepo{
 
 
     @Override
-    public User findUserByCpr(Integer cpr) {
+    public User findUserByCpr(Long cpr) {
         String sql = "SELECT * FROM user WHERE cpr=?";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
         User myUser = jdbcTemplate.queryForObject(sql, rowMapper, cpr);
@@ -61,7 +61,7 @@ public class UserRepoImpl implements IUserRepo{
     }
 
     @Override
-    public User updateUser(int cpr, User user) {
+    public User updateUser(Long cpr, User user) {
         String sql = "UPDATE user SET firstName=?, surname=?, addressid=?, email=? WHERE cpr=?";
         jdbcTemplate.update(sql, user.getFirstName(), user.getSurname(), user.getAddressId(), user.getEmail(),cpr);
 
@@ -69,7 +69,7 @@ public class UserRepoImpl implements IUserRepo{
     }
 
     @Override
-    public Boolean deleteUser(int cpr) {
+    public Boolean deleteUser(Long cpr) {
         String sql = "DELETE FROM user WHERE cpr=?";
         return jdbcTemplate.update(sql,cpr) >= 0;
     }
@@ -86,14 +86,14 @@ public class UserRepoImpl implements IUserRepo{
     }
 
     @Override
-    public Role updateRole(int cpr, Role role) {
+    public Role updateRole(Long cpr, Role role) {
         String sql = "UPDATE auth_user_role SET auth_role_id=? WHERE cpr=?";
         jdbcTemplate.update(sql, role.getRoleId());
         return null;
     }
 
     @Override
-    public Boolean deleteRole(int cpr) {
+    public Boolean deleteRole(Long cpr) {
         String sql = "DELETE FROM auth_user_role WHERE cpr=?";
         return jdbcTemplate.update(sql,cpr) >= 0;
     }
