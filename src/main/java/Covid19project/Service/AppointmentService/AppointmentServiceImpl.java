@@ -28,7 +28,7 @@ public class AppointmentServiceImpl implements IAppointmentService {
     }
 
     @Override
-    public Appointment findAppointmentByCpr(Integer cpr) {
+    public Appointment findAppointmentByCpr(Long cpr) {
         return iAppointmentRepo.findAppointmentByCpr(cpr);
     }
 

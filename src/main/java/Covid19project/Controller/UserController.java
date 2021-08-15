@@ -54,7 +54,7 @@ public class UserController {
     }
 
     @PostMapping("/myappointments")
-    public String showUserAppointment(@RequestParam(value = "userCpr", required = false) Integer cpr, Model model)
+    public String showUserAppointment(@RequestParam(value = "userCpr", required = false) Long cpr, Model model)
     {
 
         model.addAttribute("iTestCenterService", iTestCenterService);
@@ -63,7 +63,7 @@ public class UserController {
     }
 
     @PostMapping("/mydetails")
-    public String showUserDetails(@RequestParam(value = "userCprDetails", required = false) Integer cpr, Model model)
+    public String showUserDetails(@RequestParam(value = "userCprDetails", required = false) long cpr, Model model)
     {
         model.addAttribute("iAddressService", iAddressService);
         model.addAttribute("userCprDetails", iUserService.findUserByCpr(cpr));

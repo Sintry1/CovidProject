@@ -32,7 +32,7 @@ public class UserServiceImpl implements IUserService  {
     }
 
     @Override
-    public User findUserByCpr(Integer cpr) {
+    public User findUserByCpr(Long cpr) {
         return iUserRepo.findUserByCpr(cpr);
     }
 
@@ -49,12 +49,12 @@ public class UserServiceImpl implements IUserService  {
     }
 
     @Override
-    public User updateUser(int cpr, User user) {
+    public User updateUser(Long cpr, User user) {
         return iUserRepo.updateUser(cpr,user);
     }
 
     @Override
-    public Boolean deleteUser(int cpr) {
+    public Boolean deleteUser(Long cpr) {
         return iUserRepo.deleteUser(cpr);
     }
 

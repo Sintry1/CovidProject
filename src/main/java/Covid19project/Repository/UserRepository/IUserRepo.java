@@ -14,21 +14,21 @@ public interface IUserRepo {
     User addNewUserRole(User user);
     //READ
     List<User> fetchAllUsers();
-    User findUserByCpr(Integer cpr);
+    User findUserByCpr(long cpr);
     User findUserByRole(String roleName);
     User findUserByFirstName(String firstName);
 
     //Update
-    User updateUser(int cpr, User user);
+    User updateUser(long cpr, User user);
 
     //Delete
-    Boolean deleteUser(int cpr);
+    Boolean deleteUser(long cpr);
 
 
     // ROLES
     List<Role> fetchAllRoles();
-    Role updateRole(int cpr, Role role);
-    Boolean deleteRole(int cpr);
+    Role updateRole(long cpr, Role role);
+    Boolean deleteRole(long cpr);
 
 
 }

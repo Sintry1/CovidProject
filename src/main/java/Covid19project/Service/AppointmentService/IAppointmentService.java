@@ -12,7 +12,7 @@ public interface IAppointmentService {
     List<Appointment> fetchAllAppts();
     Appointment findAppointmentById(int apptID);
 
-    Appointment findAppointmentByCpr(Integer cpr);
+    Appointment findAppointmentByCpr(Long cpr);
 
     //Update
     Appointment updateAppointment(int apptID, Appointment appointment);

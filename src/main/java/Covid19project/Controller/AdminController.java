@@ -31,7 +31,7 @@ public class AdminController {
 
     // DISPLAY ALL USERS
     @GetMapping("/admin/manageUser")
-    public String displayUsers(Model model, Integer keyword) {
+    public String displayUsers(Model model, Long keyword) {
         List<User> userList = iUserService.fetchAllUsers();
         model.addAttribute("iAddressService", iAddressService);
 
@@ -62,7 +62,7 @@ public class AdminController {
 
     // UPDATE USER
     @GetMapping("/updateUser/{cpr}")
-    public String updateAppointment(@PathVariable int cpr, Model model){
+    public String updateAppointment(@PathVariable Long cpr, Model model){
         model.addAttribute("iAddressService", iAddressService);
         //get user by cpr
         User user = iUserService.findUserByCpr(cpr);
@@ -73,7 +73,7 @@ public class AdminController {
         return "admin/User/updateUser";
     }
     @PostMapping("/saveUser/{cpr}")
-    public String saveUser(@PathVariable int cpr, User user) {
+    public String saveUser(@PathVariable Long cpr, User user) {
         iUserService.updateUser(cpr, user);
         return "redirect:/admin/manageUser";
 

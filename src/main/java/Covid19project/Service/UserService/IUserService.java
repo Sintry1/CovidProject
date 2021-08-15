@@ -12,15 +12,15 @@ public interface IUserService {
     User addNewUserRole(User user);
     //READ
     List<User> fetchAllUsers();
-    User findUserByCpr(Integer cpr);
+    User findUserByCpr(Long cpr);
     User findUserByRole(String roleName);
     User findUserByFirstName(String firstName);
 
     //Update
-    User updateUser(int cpr, User user);
+    User updateUser(Long cpr, User user);
 
     //Delete
-    Boolean deleteUser(int cpr);
+    Boolean deleteUser(Long cpr);
 
     // ROLES
     List<Role> fetchAllRoles();
