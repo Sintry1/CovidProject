@@ -13,7 +13,7 @@ public class Appointment {
     @Id
     private int apptID;
     private int testCenterId;  // foreign key  Appointments -> Teest Center
-    private int cprOfUser;
+    private long cprOfUser;
     private String time;
     private String date;
 
@@ -23,7 +23,7 @@ public class Appointment {
 
     }
 
-    public Appointment(int apptID, int testCenterId, int cprOfUser, String time, String date) {
+    public Appointment(int apptID, int testCenterId, long cprOfUser, String time, String date) {
         this.apptID = apptID;
         this.testCenterId = testCenterId;
         this.cprOfUser = cprOfUser;
@@ -40,11 +40,11 @@ public class Appointment {
         this.apptID = apptID;
     }
 
-    public int getCprOfUser() {
+    public long getCprOfUser() {
         return cprOfUser;
     }
 
-    public void setCprOfUser(int cprOfUser) {
+    public void setCprOfUser(long cprOfUser) {
         this.cprOfUser = cprOfUser;
     }
 

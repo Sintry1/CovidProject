@@ -11,7 +11,7 @@ import java.util.List;
 public class User {
 
     @Id
-    private int cpr;
+    private long cpr;
     private String firstName;
     private String surname;
     private String email;
@@ -31,7 +31,7 @@ public class User {
 
 
 
-    public User(int cpr, String firstName, String surname, String email, String password, String dateOfBirth, int addressid) {
+    public User(long cpr, String firstName, String surname, String email, String password, String dateOfBirth, int addressid) {
         this.cpr = cpr;
         this.firstName = firstName;
         this.surname = surname;
@@ -91,10 +91,10 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getCPR() {
+    public long getCPR() {
         return cpr;
     }
-    public void setCPR(int CPR) {
+    public void setCPR(long CPR) {
         this.cpr = CPR;
     }
 
