@@ -44,10 +44,6 @@ public class Appointment {
         return cprOfUser;
     }
 
-    public void setCprOfUser(long cprOfUser) {
-        this.cprOfUser = cprOfUser;
-    }
-
     public int getTestCenterId() {
         return testCenterId;
     }
@@ -55,7 +51,6 @@ public class Appointment {
     public void setTestCenterId(int testCenterId) {
         this.testCenterId = testCenterId;
     }
-
 
     public String getTime() {
         return time;

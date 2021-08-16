@@ -39,7 +39,7 @@
         <a th:href="@{/}">Home</a>
         <a th:href="@{/booking}">Book a test</a>
         <a th:href="@{/admin}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')') or #authorization.expression('hasAuthority(''SECRETARY'')')}" >Management</a>
-        <a  th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a>
+        <a th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a>
 
        <!-- <h4 style="margin-right: 100px" sec:authorize="isAuthenticated()">
             <p>Logged user: <span sec:authentication="name"></span></p>

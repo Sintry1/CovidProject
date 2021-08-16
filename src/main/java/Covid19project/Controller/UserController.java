@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -54,12 +56,12 @@ public class UserController {
     }
 
     @PostMapping("/profile")
-    public String showUserAppointment(@RequestParam(value = "userCpr", required = false) Long cpr, Model model)
+    public String showUserAppointment(/*@RequestParam(value = "userCpr", required = false)*/ Long cpr, Model model)
     {
 
         model.addAttribute("iTestCenterService", iTestCenterService);
         model.addAttribute("userCpr", iAppointmentService.findAppointmentByCpr(cpr));
-        return "profile";
+        return "profile/profile";
     }
 
     @PostMapping("/mydetails")
@@ -67,16 +69,21 @@ public class UserController {
     {
         model.addAttribute("iAddressService", iAddressService);
         model.addAttribute("userCprDetails", iUserService.findUserByCpr(cpr));
-        return "profile/mydetails";
+        return "profile/profile";
     }
 
     @GetMapping("/deleteMyAppointment/{apptID}")
     public String deleteAppointment(@PathVariable int apptID) {
         iAppointmentService.deleteAppointment(apptID);
-        return "redirect:/profile";
+        return "redirect:/profile/profile";
     }
 
-
+    @RequestMapping(value= "/profile", method = RequestMethod.GET)
+    @ResponseBody
+    public String currentPrincipal(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        return principal.getName();
+    }
 
 
 }
