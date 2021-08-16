@@ -53,13 +53,13 @@ public class UserController {
         return "profile/profile";
     }
 
-    @PostMapping("/myappointments")
+    @PostMapping("/profile")
     public String showUserAppointment(@RequestParam(value = "userCpr", required = false) Long cpr, Model model)
     {
 
         model.addAttribute("iTestCenterService", iTestCenterService);
         model.addAttribute("userCpr", iAppointmentService.findAppointmentByCpr(cpr));
-        return "profile/myappointments";
+        return "profile";
     }
 
     @PostMapping("/mydetails")
