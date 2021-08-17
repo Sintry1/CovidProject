@@ -27,7 +27,6 @@
       <tr th:each="user: ${userCprDetails}">
         <td th:text="${user.getFirstName()}"></td>
         <td th:text="${user.getSurname()}"></td>
-        <!--<td th:text="${user.getAddressId()}"></td>-->
         <td th:text="${iAddressService.findAddressById(user.getAddressId()).toString()}"></td>
         <td th:text="${user.getEmail()}"></td>
         <td th:text="${user.getDateOfBirth()}"></td>

@@ -6,7 +6,7 @@
 <head th:include="fragments/fragments.html :: head" />
 
 <style>
-    /*TABLES*/
+    /* CSS Table Styling */
 
     #showTables {
         font-family: Arial, Helvetica, sans-serif;
@@ -16,19 +16,14 @@
 
     }
 
+    /* Table Data styling */
     #showTables td {
         text-align: center;
         border: 1px solid #ddd;
         padding: 8px;
     }
 
-    #showTables tr:nth-child(even){background-color: #979c9c;}
-    #showTables tr:nth-child(odd) {  background-color: #979c9c; }
-
-
-
-    #showTables tr:hover {background-color: #ddd;}
-
+    /* Defining the table header styling */
     #showTables th {
         padding-top: 12px;
         padding-bottom: 12px;
@@ -36,18 +31,26 @@
         background-color: #97bacb;
         color: black;
     }
+
+    #showTables tr:nth-child(even){background-color: #979c9c;}
+    #showTables tr:nth-child(odd) {  background-color: #979c9c; }
+
+
+    /* Defining a different colour for the row when it is hovered by a user of any kind */
+    #showTables tr:hover {background-color: #ddd;}
+
 </style>
 
 
 <body>
-<div th:replace="~{fragments/fragments.html :: navbar}"></div>
+<div th:replace="~{fragments/fragments.html :: navbar}"></div> <!-- Navigation bar fragment, defined in fragments.html -->
 
 
-<div class="container">
+<div class="container"> <!-- Back button -->
 <h1> Manage Addresses <a th:href="@{/admin}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a> </h1>
 
 
-
+<!-- Defining the table in HTML -->
 <table id="showTables">
     <tr>
         <th>ID</th>
@@ -57,6 +60,7 @@
         <th>City</th>
         <th>Actions</th>
 
+        <!-- Defining the contents of the table, taking data from the database -->
     </tr>
     <tr th:each="address :  ${myAddresses}">
         <td th:text="${address.getAddressId()}"></td>
@@ -64,9 +68,6 @@
         <td th:text="${address.getStreetNumber()}"></td>
         <td th:text="${address.getPostCode()}"></td>
         <td th:text="${address.getCity()}"></td>
-
-        <!--<td><button  type="submit"  class=" btn btn-primary"
-                     th:action="@{/deleteAppointment}" th:method="post">Update</button> </td>-->
 
         <td><a class="btn btn-warning"
                th:href="@{/deleteAddress/{addressid}(addressid=${address.getAddressId()})}">Remove</a></td>
@@ -76,6 +77,6 @@
 <br />
 <br />
 <br />
-<div th:replace="~{fragments/fragments.html :: footer}"></div>
+<div th:replace="~{fragments/fragments.html :: footer}"></div> <!-- Footer fragment, defined in fragments.html -->
 </body>
 </html>

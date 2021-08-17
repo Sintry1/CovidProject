@@ -8,26 +8,26 @@
         padding: 40px 0;
         background: #EBF0F5;
     }
-    h1 {
+    h1 { /* This controls the text for "Appointment made successfully" */
         color: #88B04B;
         font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
         font-weight: 900;
         font-size: 40px;
         margin-bottom: 10px;
     }
-    p {
-        color: #404F5E;
+    p { /* This controls the text for the appointment information */
+        color: black;
         font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
         font-size:20px;
         margin: 0;
     }
-    i {
+    i { /* This controls the tick mark that appears on the success page */
         color: #9ABC66;
         font-size: 100px;
         line-height: 200px;
         margin-left:-15px;
     }
-    .card {
+    .card { /* Controls the main background card on the page */
         background: white;
         padding: 60px;
         border-radius: 4px;
@@ -35,28 +35,19 @@
         display: inline-block;
         margin: 0 auto;
     }
-    .arrow {
-        border: solid black;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-    }
 
-    .right {
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-    }
 
 </style>
 <body>
 <div class="card">
+    <!-- This div style controls the border surrounding the check mark -->
     <div style="border-radius:200px; height:200px; width:300px; background: #F8FAF5; margin:0 auto;">
         <i class="checkmark">✓</i>
     </div>
     <h1>Appointment made successfully</h1>
-    <p>Time ..<i class="arrow right"></i> <b th:text="${appointment.getTime()}"></b> </p>
-    <p>Date ..<i class="arrow right"></i> <b th:text="${appointment.getDate()}"></b> </p>
-    <p>Test Center ..<i class="arrow right"></i> <b th:text="${iTestCenterService.findTestCenterById(appointment.getTestCenterId()).getName()}"></b> </p>
+    <p>Time: <b th:text="${appointment.getTime()}"></b> </p>
+    <p>Date: <b th:text="${appointment.getDate()}"></b> </p>
+    <p>Test Center: <b th:text="${iTestCenterService.findTestCenterById(appointment.getTestCenterId()).getName()}"></b> </p>
 
 
     <a th:href="@{/}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a>

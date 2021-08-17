@@ -57,11 +57,6 @@ public class TestCenter {
         return address;
     }
 
-    public void setAdderss(Address adderss) {
-        this.address = adderss;
-    }
-
-
     public int getCenterAddressid() {
         return center_addressid;
     }

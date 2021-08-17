@@ -1,6 +1,5 @@
 <!-- This page controls the Manage Appointment page in the system, which is only visible to management,
 where they can choose to update or cancel -->
-<!-- It could be beneficial to have a confirmation on the cancellation of appointments -->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
@@ -8,7 +7,7 @@ where they can choose to update or cancel -->
 <head th:include="fragments/fragments.html :: head" />
 
 <style>
-    /*TABLES*/
+    /* CSS Table Styling */
 
     #showTables {
         font-family: Arial, Helvetica, sans-serif;
@@ -61,11 +60,6 @@ where they can choose to update or cancel -->
             <th>Time</th>
             <th>Date</th>
             <th colspan = "2">Actions</th>
-
-
-      <!--  <tr th:if="${myAppointments.empty}">
-            <td colspan="2"> No Appointemnts  yet </td>
-        </tr>-->
 
 
         <tr th:each="appointment : ${myAppointments}">

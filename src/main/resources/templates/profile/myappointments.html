@@ -26,7 +26,6 @@
       </tr>
       <tr th:each="appointment: ${userCpr}">
         <td th:text="${appointment.getApptId()}"></td>
-        <!-- <td th:text="${appointment.getTestCenterId()}"></td>-->
         <td th:text="${iTestCenterService.findTestCenterById(appointment.getTestCenterId()).getName()}"></td>
         <td th:text="${appointment.getCprOfUser()}"></td>
         <td th:text="${appointment.getTime()}"></td>

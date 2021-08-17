@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100"
                 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<!--<head th:include="fragments/head :: head" />-->
 <head th:insert="fragments/fragments.html :: head"></head>
 <style>
 
@@ -14,8 +13,6 @@
     }
 </style>
 
-
-
 <body>
 
 <div class="page">
@@ -26,9 +23,7 @@
         <h1 >COVID19</h1>
         <h1 >Test Centers</h1>
         <h2 sec:authorize="isAuthenticated()">Protect yourself and others. Get tested today!</h2>
-       <!-- <h2 class="text__color-gray mb-2" sec:authorize="hasRole('ROLE_ADMIN')">This content is only shown to administrators</h2>
-        <h2 class="text__color-gray mb-2" sec:authorize="hasRole('SECRETARY')">This content is only shown to secretary</h2>
--->
+
         <br />
 
         <div class="card" style="width: 60rem;">
@@ -55,37 +50,10 @@
 
     </div>
 
-    <!--<div class="container">
-        <div class="card"
-        <table id="showTables">
-            <tr>
-
-                <th></th>
-                <th></th>
-
-
-            </tr>
-            <tr th:each="TestCenter :  ${myTestCenters}">
-                <td th:text="${TestCenter.getName()}"></td>
-                <td th:text="${iAddressService.findAddressById(TestCenter.getCenterAddressid()).toString()}"></td>
-            </tr>
-        </table>
-        </div>
-    </div>-->
-
-
-
-
-
-
 
 </div>
     <footer th:include="fragments/fragments.html :: footer" class="mt-5" />
 </div>
 
-
-
-
 </body>
-
 </html>

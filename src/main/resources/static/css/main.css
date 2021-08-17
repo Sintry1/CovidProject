@@ -1,5 +1,6 @@
 body, html { min-height: 100%; }
 body {
+    /* Setting the background image*/
     color: white;
     background: url(../images/1920size2.jpg) center no-repeat;
     background-size: cover;
