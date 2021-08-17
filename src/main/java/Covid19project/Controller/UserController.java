@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -45,13 +44,11 @@ public class UserController {
         return "index";
     }
 
-
     @GetMapping("/profile")
     public String getProfile() {
 
         return "profile/profile";
     }
-
 
     @PostMapping("/myappointments")
     public String showUserAppointment(@RequestParam(value = "userCpr", required = false) Long cpr, Model model)
@@ -74,13 +71,4 @@ public class UserController {
         iAppointmentService.deleteAppointment(apptID);
         return "redirect:/profile";
     }
-
-
-
-
 }
-
-
-
-
-
