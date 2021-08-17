@@ -17,7 +17,6 @@
                          class="text-uppercase btn btn-primary shadowed w-50">Back</a> </h2>
     <table class="table table-striped">
       <tr>
-        <th>CPR</th>
         <th>Firstname</th>
         <th>Surname</th>
         <th>Address ID</th>
@@ -26,7 +25,6 @@
 
       </tr>
       <tr th:each="user: ${userCprDetails}">
-        <td th:text="${user.getCPR()}"></td>
         <td th:text="${user.getFirstName()}"></td>
         <td th:text="${user.getSurname()}"></td>
         <!--<td th:text="${user.getAddressId()}"></td>-->

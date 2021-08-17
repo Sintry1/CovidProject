@@ -31,12 +31,12 @@ public class AdminController {
 
     // DISPLAY ALL USERS
     @GetMapping("/admin/manageUser")
-    public String displayUsers(Model model, Long keyword) {
+    public String displayUsers(Model model, Long cpr) {
         List<User> userList = iUserService.fetchAllUsers();
         model.addAttribute("iAddressService", iAddressService);
 
-        if(keyword != null){
-            model.addAttribute("myUsers",iUserService.findUserByCpr(keyword));
+        if(cpr != null){
+            model.addAttribute("myUsers",iUserService.findUserByCpr(cpr));
         }
         else {
             model.addAttribute("myUsers", userList);

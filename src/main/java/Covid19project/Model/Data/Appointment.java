@@ -12,7 +12,7 @@ public class Appointment {
 
     @Id
     private int apptID;
-    private int testCenterId;  // foreign key  Appointments -> Teest Center
+    private int testCenterId;  // foreign key  Appointments -> Test Center
     private long cprOfUser;
     private String time;
     private String date;
@@ -42,6 +42,11 @@ public class Appointment {
 
     public long getCprOfUser() {
         return cprOfUser;
+    }
+
+    //IntelliJ is lying and this is used constantly.
+    public void setCprOfUser(long cprOfUser) {
+        this.cprOfUser = cprOfUser;
     }
 
     public int getTestCenterId() {

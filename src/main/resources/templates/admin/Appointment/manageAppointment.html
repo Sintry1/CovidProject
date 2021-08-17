@@ -48,7 +48,7 @@ where they can choose to update or cancel -->
     <h1> Manage Appointments <a th:href="@{/admin}" type="submit" class="text-uppercase btn btn-primary login__button shadowed w-50">Back</a> </h1>
 
     <form style="color: black" th:action="@{/admin/manageAppointment}" method="get">
-        <input  id="apptSearch" type="text" placeholder="Search by CPR" th:name="keyword">
+        <input  id="apptSearch" type="text" placeholder="Search by CPR" th:name="cpr">
         <button type="submit">Search</button>
     </form><br />
 
@@ -70,7 +70,6 @@ where they can choose to update or cancel -->
 
         <tr th:each="appointment : ${myAppointments}">
             <td th:text="${appointment.getApptId()}"></td>
-           <!-- <td th:text="${appointment.getTestCenterId()}"></td>-->
             <td th:text="${iTestCenterService.findTestCenterById(appointment.getTestCenterId()).getName()}"></td>
             <td th:text="${appointment.getCprOfUser()}"></td>
             <td th:text="${appointment.getTime()}"></td>

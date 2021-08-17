@@ -39,17 +39,10 @@ public class AppointmentController {
 
     // DIPSLAY APPOINTMENTS
     @GetMapping("/admin/manageAppointment")
-    public String getManageAppointment(Model model,Long keyword){
+    public String getManageAppointment(Model model,Long cpr){
         List<Appointment> appointmentList = iAppointmentService.fetchAllAppts();
-        model.addAttribute("iUserService", iUserService);
         model.addAttribute("iTestCenterService", iTestCenterService);
-
-        if(keyword != null){
-            model.addAttribute("myAppointments", iAppointmentService.findAppointmentByCpr(keyword));
-        }
-        else {
-            model.addAttribute("myAppointments", appointmentList);
-        }
+        model.addAttribute("myAppointments", appointmentList);
 
         return "admin/Appointment/manageAppointment";
 

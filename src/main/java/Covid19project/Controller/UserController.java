@@ -60,7 +60,7 @@ public class UserController {
             return "/error";
         } else if (appointments != null) {
             model.addAttribute("iTestCenterService", iTestCenterService);
-            model.addAttribute("userCpr", iAppointmentService.findAppointmentByCpr(cpr));
+            model.addAttribute("userCpr", appointments);
             return "profile/myappointments";
         }
         return null;
@@ -69,9 +69,20 @@ public class UserController {
     @PostMapping("/mydetails")
     public String showUserDetails(@RequestParam(value = "userCprDetails", required = false) long cpr, Model model)
     {
-        model.addAttribute("iAddressService", iAddressService);
-        model.addAttribute("userCprDetails", iUserService.findUserByCpr(cpr));
-        return "profile/mydetails";
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails)principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+        if (cpr != Long.valueOf(username)) {
+            return "/error";
+        } else {
+            model.addAttribute("iAddressService", iAddressService);
+            model.addAttribute("userCprDetails", iUserService.findUserByCpr(cpr));
+            return "profile/mydetails";
+        }
     }
 
     @GetMapping("/deleteMyAppointment/{apptID}")

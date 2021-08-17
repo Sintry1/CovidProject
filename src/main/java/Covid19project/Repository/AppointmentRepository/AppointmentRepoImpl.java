@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -25,8 +27,8 @@ public class AppointmentRepoImpl implements IAppointmentRepo{
     @Override
     public List<Appointment> fetchAllAppts() {
         String sql = "SELECT * FROM appointment";
-        RowMapper<Appointment> rowMapper = new BeanPropertyRowMapper<>(Appointment.class);
-        return jdbcTemplate.query(sql, rowMapper);
+        RowMapper<Appointment> rm = new BeanPropertyRowMapper<>(Appointment.class);
+        return jdbcTemplate.query(sql, rm);
     }
 
     @Override
