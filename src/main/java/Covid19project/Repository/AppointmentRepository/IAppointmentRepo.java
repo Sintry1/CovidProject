@@ -14,7 +14,7 @@ public interface IAppointmentRepo {
 
     Appointment findAppointmentById(int apptID);
 
-    Appointment findAppointmentByCpr(Long cpr);
+    List<Appointment> findAppointmentByCpr(Long cpr);
 
     //Update
     Appointment updateAppointment(int apptID, Appointment appointment);

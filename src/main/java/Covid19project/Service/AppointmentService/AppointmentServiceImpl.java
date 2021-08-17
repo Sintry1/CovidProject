@@ -3,6 +3,8 @@ package Covid19project.Service.AppointmentService;
 import Covid19project.Model.Data.Appointment;
 import Covid19project.Repository.AppointmentRepository.IAppointmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,8 +30,19 @@ public class AppointmentServiceImpl implements IAppointmentService {
     }
 
     @Override
-    public Appointment findAppointmentByCpr(Long cpr) {
-        return iAppointmentRepo.findAppointmentByCpr(cpr);
+    public List<Appointment> findAppointmentByCpr(Long cpr) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails)principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+        if (cpr.equals(Long.valueOf(username))) {
+            return iAppointmentRepo.findAppointmentByCpr(cpr);
+        } else {
+            return null;
+        }
     }
 
     @Override

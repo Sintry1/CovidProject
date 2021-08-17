@@ -38,10 +38,10 @@ public class AppointmentRepoImpl implements IAppointmentRepo{
     }
 
     @Override
-    public Appointment findAppointmentByCpr(Long cpr) {
+    public List<Appointment> findAppointmentByCpr(Long cpr) {
         String sql = "SELECT * FROM appointment WHERE cprOfUser=?";
         RowMapper<Appointment> rowMapper = new BeanPropertyRowMapper<>(Appointment.class);
-        Appointment myAppointment = jdbcTemplate.queryForObject(sql, rowMapper, cpr);
+        List<Appointment> myAppointment = jdbcTemplate.query(sql, rowMapper, cpr);
         return myAppointment;
     }
 

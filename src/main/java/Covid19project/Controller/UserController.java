@@ -10,6 +10,8 @@ import Covid19project.Service.UserService.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,9 +55,15 @@ public class UserController {
     @PostMapping("/myappointments")
     public String showUserAppointment(@RequestParam(value = "userCpr", required = false) Long cpr, Model model)
     {
-        model.addAttribute("iTestCenterService", iTestCenterService);
-        model.addAttribute("userCpr", iAppointmentService.findAppointmentByCpr(cpr));
-        return "profile/myappointments";
+        List<Appointment> appointments = iAppointmentService.findAppointmentByCpr(cpr);
+        if(appointments == null){
+            return "/error";
+        } else if (appointments != null) {
+            model.addAttribute("iTestCenterService", iTestCenterService);
+            model.addAttribute("userCpr", iAppointmentService.findAppointmentByCpr(cpr));
+            return "profile/myappointments";
+        }
+        return null;
     }
 
     @PostMapping("/mydetails")
