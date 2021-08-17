@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 
@@ -30,8 +29,6 @@ public class UserController {
     @Autowired
     IAddressService iAddressService;
 
-
-
     @GetMapping("/login")
     public String login(){
 
@@ -44,7 +41,7 @@ public class UserController {
         model.addAttribute("iAddressService", iAddressService);
         model.addAttribute("myTestCenters", testCentersList);
 
-        System.out.println("currently logged in : "+ username);
+        System.out.println("Current User: "+ username);
         return "index";
     }
 
@@ -55,13 +52,13 @@ public class UserController {
         return "profile/profile";
     }
 
-    @PostMapping("/profile")
-    public String showUserAppointment(/*@RequestParam(value = "userCpr", required = false)*/ Long cpr, Model model)
-    {
 
+    @PostMapping("/myappointments")
+    public String showUserAppointment(@RequestParam(value = "userCpr", required = false) Long cpr, Model model)
+    {
         model.addAttribute("iTestCenterService", iTestCenterService);
         model.addAttribute("userCpr", iAppointmentService.findAppointmentByCpr(cpr));
-        return "profile/profile";
+        return "profile/myappointments";
     }
 
     @PostMapping("/mydetails")
@@ -69,21 +66,16 @@ public class UserController {
     {
         model.addAttribute("iAddressService", iAddressService);
         model.addAttribute("userCprDetails", iUserService.findUserByCpr(cpr));
-        return "profile/profile";
+        return "profile/mydetails";
     }
 
     @GetMapping("/deleteMyAppointment/{apptID}")
     public String deleteAppointment(@PathVariable int apptID) {
         iAppointmentService.deleteAppointment(apptID);
-        return "redirect:/profile/profile";
+        return "redirect:/profile";
     }
 
-    @RequestMapping(value= "/profile", method = RequestMethod.GET)
-    @ResponseBody
-    public String currentPrincipal(HttpServletRequest request){
-        Principal principal = request.getUserPrincipal();
-        return principal.getName();
-    }
+
 
 
 }
