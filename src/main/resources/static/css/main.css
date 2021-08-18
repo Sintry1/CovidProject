@@ -2,7 +2,7 @@ body, html { min-height: 100%; }
 body {
     /* Setting the background image*/
     color: white;
-    background: url(../images/1920size2.jpg) center no-repeat;
+    background: url(https://www.gannett-cdn.com/presto/2020/07/21/PTAL/b07546d1-1404-48b7-84b8-75e5163a131b-Home_Depot_Tallahassee_COVID_Testing_Site_072120_TS_012.jpg) center no-repeat;
     background-size: cover;
     background-color: #444;
 }
@@ -63,9 +63,9 @@ div.rolesec {
 /* The navbar */
 .topnav {
     overflow: hidden;
-    background-color: #979c9c;
+    background-color: aquamarine;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .topnav-right {
@@ -80,8 +80,9 @@ div.rolesec {
 
     display: block;
     text-transform: uppercase;
-    color: #fff;
+    color: black;
     font-size: 17px;
+    outline: black;
 
 
     float: left;
@@ -107,21 +108,22 @@ div.rolesec {
     position: absolute;
     left: 12vw;
     top: 20vh;
+    /*background: midnightblue;*/
 }
 
 .main__page-card h1 {
     width: 80%;
     font-size: 50px;
-    color: #97bacb;
+    color: black;
 }
 
 .main__page-card h2 {
     font-size: 30px;
-    color: #97bacb;
+    color: black;
 }
 .main__page-card h3 {
     font-size: 15px;
-    color: #97bacb;
+    color: black;
 }
 
 
@@ -130,7 +132,7 @@ div.rolesec {
 
 /* FOOTER */
 footer {
-    background-color: #979c9c;
+    background-color: aquamarine;
     position: fixed;
     text-align: center;
     width: 100%;
@@ -144,7 +146,3 @@ footer a {
     text-decoration: none;
     color: black;
 }
-
-
-
-

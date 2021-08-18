@@ -20,17 +20,16 @@
    <div th:replace="~{fragments/fragments.html :: navbar}"></div>
 
     <div class="main__page-card">
-        <h1 >COVID19</h1>
-        <h1 >Test Centers</h1>
-        <h2 sec:authorize="isAuthenticated()">Protect yourself and others. Get tested today!</h2>
+        <h1 style="margin-left: 150px">Covid-19 Test Centers</h1>
+        <h2 style="margin-left: 150px" sec:authorize="isAuthenticated()">Stay safe. Get Tested!</h2>
 
         <br />
 
         <div class="card" style="width: 60rem;">
             <div class="card-header">
-                <h2 >Our test centers!</h2>
+                <h2 style="margin-left: 150px">Our test centers!</h2>
             </div>
-            <table id="showTables" class="card-table table" style="color:black">
+            <table id="showTables" class="card-table table" style="color:black;margin-left:150px">
                 <thead>
                 <tr>
                     <th ></th>
@@ -40,8 +39,8 @@
                 </thead>
                 <tbody>
                 <tr th:each="TestCenter :  ${myTestCenters}">
-                    <b><td th:text="${TestCenter.getName()}"></td></b>
-                    <td th:text="${iAddressService.findAddressById(TestCenter.getCenterAddressid()).toString()}"></td>
+                    <b><td style="color: black" th:text="${TestCenter.getName()}"></td></b>
+                    <td style="color: black" th:text="${iAddressService.findAddressById(TestCenter.getCenterAddressid()).toString()}"></td>
                 </tr>
 
                 </tbody>
